@@ -118,7 +118,7 @@
   .celeb-avatar{width:46px;height:46px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:4px;font-family:"Black Han Sans",sans-serif;font-size:0.88rem;font-weight:900;color:#fff;letter-spacing:0.03em;text-shadow:0 1px 3px rgba(0,0,0,0.5);position:relative;overflow:hidden;}
   .celeb-avatar span{position:relative;z-index:1;}
   .celeb-avatar::after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,0.15) 0%,rgba(0,0,0,0.2) 100%);}
-  .celeb-name{font-family:'Black Han Sans',sans-serif;font-size:0.92rem;}
+  .celeb-name{font-family:'Black Han Sans','Noto Sans KR',sans-serif;font-size:0.92rem;}
   .celeb-name-kr{font-size:0.68rem;color:var(--navy);opacity:0.65;margin-top:1px;font-weight:500;}
   .celeb-meta{display:flex;align-items:center;gap:0.4rem;margin-top:3px;flex-wrap:wrap;}
   .tag{font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.06em;text-transform:uppercase;padding:2px 5px;border:1px solid var(--border);color:var(--muted);}
@@ -555,13 +555,23 @@ const DB = [
   {id:90,emoji:'⚽',name:'SON HEUNG-MIN',kr:'손흥민 · Tottenham Hotspur',cat:'athlete',tags:['athlete','football'],followers:17.4,media:89,brandDeals:12,fanActivity:90,searchTrend:88,trend:'hot',ch:'up',ct:'+5.2',history:[82.6,82.8,82.5,85.2,82.9,82.4,87.2,91]},
   {id:91,emoji:'🎮',name:'FAKER (T1)',kr:'이상혁 · T1 Esports',cat:'athlete',tags:['athlete','esports'],followers:8.9,media:82,brandDeals:8,fanActivity:90,searchTrend:84,trend:'hot',ch:'up',ct:'+4.8',history:[74.4,77.3,76.8,76.5,75.0,73.2,77.6,82]},
   {id:92,emoji:'⚽',name:'LEE KANG-IN',kr:'이강인 · Paris Saint-Germain',cat:'athlete',tags:['athlete','football'],followers:5.2,media:71,brandDeals:6,fanActivity:78,searchTrend:72,trend:'rising',ch:'up',ct:'+3.7',history:[60.0,61.8,60.6,58.8,59.4,57.3,63.4,70]},
-  {id:93,emoji:'⚾',name:'REXSON OH',kr:'오재원 · Los Angeles Dodgers',cat:'athlete',tags:['athlete','baseball'],followers:4.8,media:74,brandDeals:5,fanActivity:76,searchTrend:70,trend:'rising',ch:'up',ct:'+3.1',history:[64.3,66.8,64.3,66.5,64.8,63.0,67.2,72]},
   {id:94,emoji:'🏊',name:'HWANG SUN-WOO',kr:'황선우 · National Team',cat:'athlete',tags:['athlete'],followers:3.1,media:71,brandDeals:4,fanActivity:74,searchTrend:69,trend:'rising',ch:'up',ct:'+2.4',history:[66.8,65.6,64.9,63.4,61.2,62.8,66.1,69]},
   {id:95,emoji:'⛳',name:'KO JIN-YOUNG',kr:'고진영 · KLPGA',cat:'athlete',tags:['athlete'],followers:2.4,media:69,brandDeals:6,fanActivity:72,searchTrend:67,trend:'stable',ch:'flat',ct:'+0.4',history:[58.0,58.3,61.0,58.7,60.5,62.8,64.9,67]},
-  {id:96,emoji:'🥊',name:'LEE SI-YOUNG',kr:'이시영 · Independent',cat:'athlete',tags:['athlete'],followers:3.8,media:67,brandDeals:4,fanActivity:71,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.3',history:[58.8,60.1,60.3,62.8,60.7,58.6,61.9,66]},
-  {id:97,emoji:'🏀',name:'RUI HACHIMURA',kr:'하치무라 루이 · LA Lakers',cat:'athlete',tags:['athlete'],followers:2.9,media:65,brandDeals:5,fanActivity:69,searchTrend:64,trend:'stable',ch:'flat',ct:'+0.5',history:[56.0,59.0,59.4,59.4,60.2,58.2,61.5,64]},
-  {id:98,emoji:'🎿',name:'KIM MIN-SEOK',kr:'김민석 · Speed Skating',cat:'athlete',tags:['athlete'],followers:1.8,media:63,brandDeals:3,fanActivity:68,searchTrend:62,trend:'stable',ch:'flat',ct:'+0.2',history:[51.4,51.4,50.2,49.6,49.6,49.4,55.1,61]},
-  {id:99,emoji:'🏋️',name:'YOUNG PARK',kr:'박영 · Independent',cat:'athlete',tags:['athlete'],followers:2.1,media:61,brandDeals:2,fanActivity:66,searchTrend:60,trend:'stable',ch:'flat',ct:'+0.1',history:[57.7,55.6,57.7,55.7,53.7,55.3,57.7,60]},
+  {id:101,emoji:'⚽',name:'KIM MIN-JAE',kr:'김민재 · Bayern Munich',cat:'athlete',tags:['athlete','football'],followers:4.1,media:79,brandDeals:8,fanActivity:82,searchTrend:80,trend:'hot',ch:'up',ct:'+4.2',history:[72.5,73.8,74.6,75.9,76.3,77.1,78.5,80]},
+  {id:102,emoji:'⚽',name:'CHO GUE-SUNG',kr:'조규성 · FC Midtjylland',cat:'athlete',tags:['athlete','football'],followers:2.8,media:69,brandDeals:5,fanActivity:76,searchTrend:71,trend:'rising',ch:'up',ct:'+2.9',history:[62.1,63.4,64.0,65.2,66.1,66.8,67.5,69]},
+  {id:103,emoji:'⚾',name:'LEE JUNG-HOO',kr:'이정후 · San Francisco Giants',cat:'athlete',tags:['athlete','baseball'],followers:1.8,media:66,brandDeals:4,fanActivity:73,searchTrend:69,trend:'rising',ch:'up',ct:'+2.6',history:[59.0,60.2,61.1,62.3,63.0,63.8,65.1,67]},
+  {id:104,emoji:'⚾',name:'KIM HA-SEONG',kr:'김하성 · Atlanta Braves',cat:'athlete',tags:['athlete','baseball'],followers:1.5,media:63,brandDeals:3,fanActivity:70,searchTrend:66,trend:'stable',ch:'flat',ct:'+0.5',history:[57.2,58.0,58.5,59.1,59.4,60.0,60.8,62]},
+  {id:105,emoji:'⚾',name:'RYU HYUN-JIN',kr:'류현진 · Hanwha Eagles',cat:'athlete',tags:['athlete','baseball'],followers:2.2,media:61,brandDeals:5,fanActivity:68,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.3',history:[56.0,56.5,57.1,57.8,58.2,58.9,59.6,61]},
+  {id:106,emoji:'🏸',name:'AN SE-YOUNG',kr:'안세영 · Korea National Team',cat:'athlete',tags:['athlete'],followers:5.3,media:76,brandDeals:9,fanActivity:86,searchTrend:83,trend:'hot',ch:'up',ct:'+5.6',history:[70.1,71.8,73.2,75.0,76.4,77.9,80.3,83]},
+  {id:107,emoji:'⚾',name:'KIM DO-YOUNG',kr:'김도영 · KIA Tigers',cat:'athlete',tags:['athlete','baseball'],followers:2.1,media:71,brandDeals:4,fanActivity:79,searchTrend:75,trend:'rising',ch:'up',ct:'+3.4',history:[63.5,65.0,66.2,67.8,68.9,70.1,72.3,74]},
+  {id:108,emoji:'🥊',name:'JUNG CHAN-SUNG',kr:'정찬성 · Former UFC Fighter',cat:'athlete',tags:['athlete'],followers:1.6,media:65,brandDeals:3,fanActivity:77,searchTrend:71,trend:'stable',ch:'flat',ct:'+0.4',history:[61.2,62.0,62.5,63.1,63.8,64.4,65.0,66]},
+  {id:109,emoji:'⚽',name:'HWANG HEE-CHAN',kr:'황희찬 · Wolverhampton Wanderers',cat:'athlete',tags:['athlete','football'],followers:2.5,media:67,brandDeals:4,fanActivity:75,searchTrend:72,trend:'rising',ch:'up',ct:'+2.7',history:[61.8,63.0,64.1,65.3,66.0,67.2,68.5,70]},
+  {id:110,emoji:'⚽',name:'LEE JAE-SUNG',kr:'이재성 · Mainz 05',cat:'athlete',tags:['athlete','football'],followers:1.2,media:62,brandDeals:3,fanActivity:71,searchTrend:67,trend:'stable',ch:'flat',ct:'+0.3',history:[57.5,58.1,58.7,59.3,59.9,60.4,61.0,62]},
+  {id:111,emoji:'⚾',name:'KIM HYE-SUNG',kr:'김혜성 · Los Angeles Dodgers',cat:'athlete',tags:['athlete','baseball'],followers:0.9,media:58,brandDeals:2,fanActivity:68,searchTrend:63,trend:'stable',ch:'flat',ct:'+0.2',history:[52.0,52.8,53.5,54.1,54.9,55.6,56.3,57]},
+  {id:112,emoji:'⛳',name:'TOM KIM',kr:'김주형 · PGA Tour',cat:'athlete',tags:['athlete'],followers:1.4,media:68,brandDeals:7,fanActivity:73,searchTrend:70,trend:'rising',ch:'up',ct:'+2.3',history:[60.5,61.8,62.9,64.0,65.1,66.3,67.8,69]},
+  {id:113,emoji:'🥊',name:'YOO JOO-SANG',kr:'유주상 · UFC',cat:'athlete',tags:['athlete'],followers:0.7,media:56,brandDeals:2,fanActivity:66,searchTrend:62,trend:'stable',ch:'flat',ct:'+0.1',history:[52.5,52.9,53.4,53.8,54.2,54.7,55.1,56]},
+  {id:114,emoji:'⚾',name:'SONG SEONG-MOON',kr:'송성문 · KT Wiz',cat:'athlete',tags:['athlete','baseball'],followers:1.1,media:57,brandDeals:2,fanActivity:67,searchTrend:63,trend:'stable',ch:'flat',ct:'+0.2',history:[52.8,53.3,53.9,54.4,54.9,55.3,55.8,57]},
+  {id:115,emoji:'🎮',name:'DEFT (KIM HYUK-KYU)',kr:'김혁규 · Military Service',cat:'athlete',tags:['athlete','esports'],followers:2.8,media:64,brandDeals:5,fanActivity:83,searchTrend:77,trend:'rising',ch:'up',ct:'+3.8',history:[62.0,63.5,65.1,66.8,68.2,69.9,71.5,74]},
   {id:100,emoji:'🌺',name:'BLACKPINK / JISOO',kr:'김지수 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:80.3,media:88,brandDeals:12,fanActivity:93,searchTrend:89,trend:'rising',ch:'up',ct:'+3.2',history:[78.0,78.5,79.0,79.5,80.0,80.1,80.2,80.3]},
 ];
 
@@ -666,6 +676,22 @@ const AVATARS = {
   97: {i:"RH2",g:"linear-gradient(135deg,#552583,#FDB927)"},
   98: {i:"KM",g:"linear-gradient(135deg,#003580,#ffffff)"},
   99: {i:"YP",g:"linear-gradient(135deg,#373b44,#4286f4)"},
+  100: {i:"JS",g:"linear-gradient(135deg,#1a1a1a,#e91e8c)"},
+  101: {i:"KMJ",g:"linear-gradient(135deg,#dc052d,#0066b2)"},
+  102: {i:"CGS",g:"linear-gradient(135deg,#003478,#cd2e3a)"},
+  103: {i:"LJH2",g:"linear-gradient(135deg,#FD5A1E,#27251F)"},
+  104: {i:"KHS",g:"linear-gradient(135deg,#2F241D,#FFC425)"},
+  105: {i:"RHJ",g:"linear-gradient(135deg,#003c7e,#c41230)"},
+  106: {i:"ASY",g:"linear-gradient(135deg,#003478,#cd2e3a)"},
+  107: {i:"KDY",g:"linear-gradient(135deg,#EA0029,#000000)"},
+  108: {i:"JCS",g:"linear-gradient(135deg,#1a1a1a,#c0392b)"},
+  109: {i:"HHC",g:"linear-gradient(135deg,#f9a01b,#231f20)"},
+  110: {i:"LJS2",g:"linear-gradient(135deg,#d30000,#000000)"},
+  111: {i:"KHY",g:"linear-gradient(135deg,#003478,#ffffff)"},
+  112: {i:"TK",g:"linear-gradient(135deg,#2d6a4f,#95d5b2)"},
+  113: {i:"YJS",g:"linear-gradient(135deg,#003478,#cd2e3a)"},
+  114: {i:"SSM",g:"linear-gradient(135deg,#e8003d,#000000)"},
+  115: {i:"DF",g:"linear-gradient(135deg,#C89B3C,#785A28)"},
 };
 
 function makeAvatar(id, size) {
@@ -691,9 +717,9 @@ function calcScore(c) {
 
 function recomputeAll() {
   DB.forEach(c => { c.score = calcScore(c); });
-  [...DB].sort((a,b)=>b.score-a.score).forEach((c,i)=>{ DB[c.id].overallRank=i+1; });
+  [...DB].sort((a,b)=>b.score-a.score).forEach((c,i)=>{ c.overallRank=i+1; });
   ['kpop','actor','creator','athlete'].forEach(cat=>{
-    [...DB].filter(c=>c.cat===cat).sort((a,b)=>b.score-a.score).forEach((c,i)=>{ DB[c.id].catRank=i+1; });
+    [...DB].filter(c=>c.cat===cat).sort((a,b)=>b.score-a.score).forEach((c,i)=>{ c.catRank=i+1; });
   });
 }
 recomputeAll();
@@ -931,7 +957,7 @@ function drawChart(history) {
 // MODAL
 // =============================================
 function openModal(id){
-  const c=DB[id];
+  const c=DB.find(e=>e.id===id);
   // Avatar in modal header
   const modalHeader = document.getElementById('modalHeader');
   if(modalHeader) modalHeader.innerHTML = makeAvatar(c.id, 80);

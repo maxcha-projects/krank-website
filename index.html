@@ -591,8 +591,8 @@ const DB = [
   {id:117,emoji:'🍳',name:'AHN SUNG-JAE',kr:'안성재 · Culinary Class Wars',cat:'entertainer',tags:['entertainer','chef'],followers:2.1,media:82,brandDeals:8,fanActivity:85,searchTrend:84,trend:'hot',ch:'up',ct:'+5.3',history:[66.0,68.2,70.1,72.3,74.5,76.0,78.2,80]},
   {id:118,emoji:'😂',name:'HONG JIN-KYUNG',kr:'홍진경 · Variety',cat:'entertainer',tags:['entertainer','variety'],followers:1.8,media:78,brandDeals:6,fanActivity:76,searchTrend:72,trend:'stable',ch:'flat',ct:'+0.3',history:[64.5,65.1,65.8,66.2,66.9,67.3,68.0,68]},
   {id:119,emoji:'✏️',name:'KIAN84',kr:'기안84 · I Live Alone',cat:'entertainer',tags:['entertainer','variety'],followers:1.5,media:71,brandDeals:4,fanActivity:74,searchTrend:68,trend:'stable',ch:'flat',ct:'+0.2',history:[60.1,60.8,61.3,61.9,62.4,62.8,63.5,64]},
-  {id:120,emoji:'🎙️',name:'YOO JAE-SUK',kr:'유재석 · MBC/SBS',cat:'entertainer',tags:['entertainer','variety'],followers:8.5,media:95,brandDeals:12,fanActivity:92,searchTrend:90,trend:'hot',ch:'up',ct:'+3.8',history:[82.1,83.5,84.9,86.2,87.4,88.6,89.8,91]},
-  {id:121,emoji:'💪',name:'KANG HO-DONG',kr:'강호동 · KBS/JTBC',cat:'entertainer',tags:['entertainer','variety'],followers:3.8,media:88,brandDeals:8,fanActivity:85,searchTrend:82,trend:'stable',ch:'flat',ct:'+0.5',history:[74.2,74.8,75.3,75.9,76.4,77.0,77.6,78]},
+  {id:120,emoji:'🎙️',name:'YOO JAE-SUK',kr:'유재석 · MBC/SBS',cat:'entertainer',tags:['entertainer','variety'],followers:null,media:95,brandDeals:12,fanActivity:92,searchTrend:90,trend:'hot',ch:'up',ct:'+3.8',history:[82.1,83.5,84.9,86.2,87.4,88.6,89.8,91]},
+  {id:121,emoji:'💪',name:'KANG HO-DONG',kr:'강호동 · KBS/JTBC',cat:'entertainer',tags:['entertainer','variety'],followers:null,media:88,brandDeals:8,fanActivity:85,searchTrend:82,trend:'stable',ch:'flat',ct:'+0.5',history:[74.2,74.8,75.3,75.9,76.4,77.0,77.6,78]},
   {id:122,emoji:'📰',name:'JEON HYUN-MOO',kr:'전현무 · MBC',cat:'entertainer',tags:['entertainer','variety'],followers:2.8,media:79,brandDeals:6,fanActivity:78,searchTrend:75,trend:'stable',ch:'flat',ct:'+0.4',history:[66.1,66.7,67.2,67.8,68.3,68.9,69.4,70]},
   {id:123,emoji:'😄',name:'LEE EUN-JI',kr:'이은지 · Variety',cat:'entertainer',tags:['entertainer','variety'],followers:1.9,media:72,brandDeals:5,fanActivity:77,searchTrend:73,trend:'rising',ch:'up',ct:'+2.1',history:[61.3,62.0,62.8,63.5,64.3,65.1,65.8,67]},
   {id:124,emoji:'🎭',name:'SHIN DONG-YUP',kr:'신동엽 · KBS/tvN',cat:'entertainer',tags:['entertainer','variety'],followers:2.1,media:82,brandDeals:7,fanActivity:80,searchTrend:78,trend:'stable',ch:'flat',ct:'+0.3',history:[68.5,69.0,69.5,70.1,70.6,71.1,71.6,72]},
@@ -751,8 +751,11 @@ function makeAvatar(id, size) {
 // SCORE CALCULATION
 // =============================================
 function calcScore(c) {
-  const followersScore = Math.min(100, c.followers);
   const brandScore = Math.min(100, (c.brandDeals / 20) * 100);
+  if (c.followers === null || c.followers === 'N/A') {
+    return +((c.media * 0.25 + brandScore * 0.20 + c.fanActivity * 0.15 + c.searchTrend * 0.05) / 0.65).toFixed(1);
+  }
+  const followersScore = Math.min(100, c.followers);
   return +(
     (followersScore * 0.35) +
     (c.media        * 0.25) +
@@ -831,7 +834,7 @@ function renderTable(page,filter){
       const dr=isCat?c.catRank:c.overallRank;
       const rc=dr===1?'gold':dr===2?'silver':dr===3?'bronze':'';
       const ob=isCat?`<span class="overall-badge">Overall #${c.overallRank}</span>`:'';
-      const social=c.followers>=1?c.followers.toFixed(1)+'M':Math.round(c.followers*1000)+'K';
+      const social=c.followers===null||c.followers==='N/A'?'N/A':c.followers>=1?c.followers.toFixed(1)+'M':Math.round(c.followers*1000)+'K';
       return `<tr class="rank-row" onclick="openModal(${c.id})">
         <td class="rank-num ${rc}">${dr}</td>
         <td><div class="celeb-info">${makeAvatar(c.id,46)}<div>
@@ -839,7 +842,7 @@ function renderTable(page,filter){
           <div class="celeb-name-kr">${c.kr}</div>
           <div class="celeb-meta">${c.tags.slice(0,2).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')}${ob}</div>
         </div></div></td>
-        <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${Math.min(100,c.followers)}%"></div></div><span class="metric-val">${social}</span></div></td>
+        <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${c.followers===null||c.followers==='N/A'?0:Math.min(100,c.followers)}%"></div></div><span class="metric-val">${social}</span></div></td>
         <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${c.media}%;background:#c8a84b"></div></div><span class="metric-val">${c.media}/100</span></div></td>
         <td><span class="trend-badge ${c.trend}">${trendLabel(c.trend)}</span></td>
         <td><div class="power-score">${c.score}</div><div class="score-change ${c.ch}">${c.ch==='up'?'▲':c.ch==='down'?'▼':'—'} ${c.ct} pts</div></td>
@@ -886,14 +889,14 @@ function renderHomeTable(){
   const top10=[...DB].sort((a,b)=>a.overallRank-b.overallRank).slice(0,10);
   t.innerHTML=`<thead><tr><th>RANK</th><th>Celebrity</th><th>Social</th><th>Media</th><th>Trend</th><th>Score</th></tr></thead><tbody>`
     +top10.map((c,i)=>{
-      const social=c.followers>=1?c.followers.toFixed(1)+'M':Math.round(c.followers*1000)+'K';
+      const social=c.followers===null||c.followers==='N/A'?'N/A':c.followers>=1?c.followers.toFixed(1)+'M':Math.round(c.followers*1000)+'K';
       return `<tr class="rank-row" onclick="openModal(${c.id})">
         <td class="rank-num ${i===0?'gold':i===1?'silver':i===2?'bronze':''}">${i+1}</td>
         <td><div class="celeb-info">${makeAvatar(c.id,46)}<div>
           <div class="celeb-name">${c.name}</div><div class="celeb-name-kr">${c.kr}</div>
           <div class="celeb-meta">${c.tags.slice(0,2).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')}</div>
         </div></div></td>
-        <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${Math.min(100,c.followers)}%"></div></div><span class="metric-val">${social}</span></div></td>
+        <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${c.followers===null||c.followers==='N/A'?0:Math.min(100,c.followers)}%"></div></div><span class="metric-val">${social}</span></div></td>
         <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${c.media}%;background:#c8a84b"></div></div><span class="metric-val">${c.media}/100</span></div></td>
         <td><span class="trend-badge ${c.trend}">${trendLabel(c.trend)}</span></td>
         <td><div class="power-score">${c.score}</div><div class="score-change ${c.ch}">${c.ch==='up'?'▲':c.ch==='down'?'▼':'—'} ${c.ct} pts</div></td>
@@ -1027,7 +1030,10 @@ function openModal(id){
     <div class="modal-stat-box"><div class="modal-stat-label">Weekly Change</div><div class="modal-stat-val" style="color:${c.ch==='up'?'#1e8449':c.ch==='down'?'#c0392b':'#8a8480'}">${c.ch==='up'?'▲':c.ch==='down'?'▼':'—'} ${c.ct} pts</div></div>`;
   const colors=['#b8923a','#b8923a','#1a5f8a','#1e8449','#6b4c8a'];
   const labels=['Social Reach','Media Presence','Brand Influence','Fan Engagement','Search Interest'];
-  const vals=[Math.min(100,c.followers)*0.35, c.media*0.25, Math.min(100,(c.brandDeals/20)*100)*0.20, c.fanActivity*0.15, c.searchTrend*0.05];
+  const hasFollowers=c.followers!==null&&c.followers!=='N/A';
+  const vals=hasFollowers
+    ?[Math.min(100,c.followers)*0.35, c.media*0.25, Math.min(100,(c.brandDeals/20)*100)*0.20, c.fanActivity*0.15, c.searchTrend*0.05]
+    :[0, c.media*0.25/0.65, Math.min(100,(c.brandDeals/20)*100)*0.20/0.65, c.fanActivity*0.15/0.65, c.searchTrend*0.05/0.65];
   document.getElementById('modalBreakdown').innerHTML=labels.map((l,i)=>`
     <div class="breakdown-row">
       <div class="breakdown-label" style="font-size:0.52rem;width:135px">${l}</div>

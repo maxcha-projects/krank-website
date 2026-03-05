@@ -11,6 +11,7 @@
   body{background:var(--black);color:var(--white);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;}
   body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.5;}
 
+  /* NAV */
   nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,10,0.97);backdrop-filter:blur(12px);z-index:50;}
   .logo{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;letter-spacing:0.15em;color:var(--white);cursor:pointer;}
   .logo span{color:var(--red);}
@@ -21,15 +22,63 @@
   .nav-links li a.active{color:var(--white);border-bottom:2px solid var(--red);}
   .nav-cta{background:var(--red);color:var(--white)!important;border-bottom:none!important;}
 
+  /* PAGES */
   .page{display:none;animation:fadeUp 0.35s ease both;}
   .page.active{display:block;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
+  /* TICKER */
   .ticker-wrap{overflow:hidden;background:var(--red);padding:0.6rem 0;white-space:nowrap;}
   .ticker{display:inline-block;animation:ticker 40s linear infinite;font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--white);}
   @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  .page-banner{background:var(--dim);border-bottom:1px solid var(--border);padding:2.5rem 2.5rem;}
+  /* HERO */
+  .hero{padding:4rem 2.5rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1400px;margin:0 auto;}
+  .hero-eyebrow{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.25em;color:var(--red);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
+  .hero-eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--red);}
+  h1{font-family:'Black Han Sans',sans-serif;font-size:clamp(2.6rem,5vw,4.8rem);line-height:1;margin-bottom:1.4rem;}
+  h1 em{font-style:normal;color:var(--red);display:block;}
+  .hero-desc{color:var(--muted);font-size:0.92rem;line-height:1.8;max-width:480px;margin-bottom:2rem;}
+  .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+  .btn-primary{background:var(--red);color:var(--white);padding:0.8rem 1.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.2s;}
+  .btn-primary:hover{background:#ff0047;transform:translateY(-2px);}
+  .btn-secondary{background:transparent;color:var(--white);padding:0.8rem 1.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:all 0.2s;}
+  .btn-secondary:hover{border-color:var(--white);}
+
+  /* STATS BAR */
+  .stats-bar{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);overflow:hidden;}
+  .stat-item{padding:1.8rem;border-right:1px solid var(--border);text-align:center;}
+  .stat-item:last-child{border-right:none;}
+  .stat-num{font-family:'Black Han Sans',sans-serif;font-size:2.6rem;color:var(--white);display:block;line-height:1;}
+  .stat-num .accent{color:var(--red);}
+  .stat-label{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;margin-top:0.4rem;display:block;}
+
+  /* SECTION */
+  .section{max-width:1400px;margin:0 auto;padding:2.5rem 2.5rem;}
+  .section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.8rem;border-bottom:1px solid var(--border);padding-bottom:1.2rem;}
+  .section-title{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;}
+  .section-title span{color:var(--red);}
+  .section-subtitle{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);margin-top:0.3rem;letter-spacing:0.1em;}
+
+  /* CATEGORY CARDS */
+  .category-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2.5rem;}
+  .cat-card{background:var(--card);padding:1.6rem 1rem;cursor:pointer;transition:background 0.2s;text-align:center;}
+  .cat-card:hover{background:var(--dim);}
+  .cat-card-icon{font-size:1.9rem;margin-bottom:0.5rem;display:block;}
+  .cat-card-title{font-family:'Black Han Sans',sans-serif;font-size:0.95rem;margin-bottom:0.2rem;}
+  .cat-card-count{font-family:'Space Mono',monospace;font-size:0.52rem;color:var(--muted);letter-spacing:0.08em;}
+
+  /* FEATURE STRIP */
+  .feature-strip{background:var(--dim);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem;}
+  .feature-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+  .feature-item{padding:1.8rem;border-right:1px solid var(--border);text-align:center;}
+  .feature-item:last-child{border-right:none;}
+  .feature-icon{font-size:1.8rem;margin-bottom:0.8rem;display:block;}
+  .feature-title{font-family:'Black Han Sans',sans-serif;font-size:0.95rem;margin-bottom:0.4rem;}
+  .feature-desc{font-size:0.74rem;color:var(--muted);line-height:1.7;}
+
+  /* PAGE BANNER */
+  .page-banner{background:var(--dim);border-bottom:1px solid var(--border);padding:2.5rem;}
   .page-banner-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;}
   .page-banner h2{font-family:'Black Han Sans',sans-serif;font-size:2.8rem;}
   .page-banner h2 span{color:var(--red);}
@@ -37,24 +86,22 @@
   .page-banner-stat .big{font-family:'Black Han Sans',sans-serif;font-size:2.8rem;color:var(--red);line-height:1;text-align:right;}
   .page-banner-stat .small{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;text-align:right;}
 
-  .section{max-width:1400px;margin:0 auto;padding:2.5rem 2.5rem;}
-  .section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.8rem;border-bottom:1px solid var(--border);padding-bottom:1.2rem;}
-  .section-title{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;}
-  .section-title span{color:var(--red);}
-  .section-subtitle{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);margin-top:0.3rem;letter-spacing:0.1em;}
-
+  /* SEARCH + FILTER */
   .search-bar{display:flex;margin-bottom:1.2rem;}
   .search-input{flex:1;background:var(--dim);border:1px solid var(--border);border-right:none;padding:0.75rem 1.2rem;color:var(--white);font-family:'Space Mono',monospace;font-size:0.72rem;outline:none;}
   .search-input::placeholder{color:var(--muted);}
   .search-input:focus{border-color:var(--red);}
   .search-btn{background:var(--red);border:none;padding:0 1.2rem;color:var(--white);cursor:pointer;font-size:1rem;}
-
   .filter-row{display:flex;gap:0.5rem;margin-bottom:1.2rem;flex-wrap:wrap;}
   .filter-pill{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0.9rem;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all 0.2s;background:transparent;}
   .filter-pill:hover{color:var(--white);border-color:var(--white);}
   .filter-pill.active{background:var(--red);color:var(--white);border-color:var(--red);}
+  .results-count{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--muted);margin-bottom:0.8rem;letter-spacing:0.06em;}
 
+  /* RANKINGS LAYOUT */
   .rankings-layout{display:grid;grid-template-columns:1fr 290px;gap:2rem;align-items:start;}
+
+  /* TABLE */
   .rank-table{width:100%;border-collapse:collapse;}
   .rank-table thead tr{border-bottom:1px solid var(--border);}
   .rank-table th{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);padding:0.65rem 0.75rem;text-align:left;font-weight:400;}
@@ -94,6 +141,7 @@
   .trend-badge.stable{background:rgba(138,155,168,0.1);border:1px solid rgba(138,155,168,0.2);color:var(--silver);}
   .trend-badge.falling{background:rgba(232,0,61,0.07);border:1px solid rgba(232,0,61,0.15);color:#ff6688;}
 
+  /* SIDE PANEL */
   .side-panel{position:sticky;top:80px;display:flex;flex-direction:column;gap:1.4rem;}
   .panel-card{background:var(--card);border:1px solid var(--border);padding:1.3rem;}
   .panel-title{font-family:'Black Han Sans',sans-serif;font-size:0.8rem;letter-spacing:0.1em;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
@@ -114,8 +162,6 @@
   .breakdown-fill{position:absolute;top:0;left:0;height:100%;}
   .breakdown-val{font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--white);width:26px;text-align:right;flex-shrink:0;}
 
-  .results-count{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--muted);margin-bottom:0.8rem;letter-spacing:0.06em;}
-
   /* MODAL */
   .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
   .modal-overlay.open{display:flex;}
@@ -133,7 +179,21 @@
   .modal-stat-box{border:1px solid var(--border);padding:0.9rem;}
   .modal-stat-label{font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem;}
   .modal-stat-val{font-family:'Black Han Sans',sans-serif;font-size:1.2rem;}
-  
+
+  /* FORMULA PAGE */
+  .formula-box{background:var(--dim);border:1px solid var(--border);padding:1.2rem;margin-bottom:1.5rem;}
+  .formula-title{font-family:'Black Han Sans',sans-serif;font-size:0.82rem;margin-bottom:0.8rem;}
+  .formula-eq{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.06em;line-height:2;}
+
+  /* MISC */
+  .live-dot{display:inline-block;width:6px;height:6px;background:var(--red);border-radius:50%;margin-right:4px;animation:pulse 1.5s ease infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.3)}}
+  footer{border-top:1px solid var(--border);padding:1.8rem 2.5rem;display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto;}
+  .footer-logo{font-family:'Black Han Sans',sans-serif;font-size:1.1rem;}
+  .footer-logo span{color:var(--red);}
+  .footer-links{display:flex;gap:1.8rem;}
+  .footer-links a{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--white);}
 
   @media(max-width:1024px){.rankings-layout{grid-template-columns:1fr;}.side-panel{position:static;}}
   @media(max-width:768px){.hero{grid-template-columns:1fr;gap:2rem;}.feature-inner{grid-template-columns:1fr 1fr;}.category-cards{grid-template-columns:1fr 1fr;}.nav-links{display:none;}.rank-table th:nth-child(3),.rank-table td:nth-child(3),.rank-table th:nth-child(4),.rank-table td:nth-child(4){display:none;}}
@@ -157,14 +217,14 @@
 </nav>
 
 <div class="ticker-wrap">
-  <div class="ticker" id="tickerText">▲ BTS/V leads overall rankings &nbsp;·&nbsp; BLACKPINK LISA highest social reach at 97.1M &nbsp;·&nbsp; SON HEUNG-MIN top athlete &nbsp;·&nbsp; FAKER leads esports category &nbsp;·&nbsp; IU tops actor rankings &nbsp;·&nbsp; STRAY KIDS rising fast &nbsp;·&nbsp; ▲ BTS/V leads overall rankings &nbsp;·&nbsp; BLACKPINK LISA highest social reach at 97.1M &nbsp;·&nbsp; SON HEUNG-MIN top athlete &nbsp;·&nbsp; FAKER leads esports category &nbsp;·&nbsp; IU tops actor rankings &nbsp;·&nbsp; STRAY KIDS rising fast &nbsp;·&nbsp;</div>
+  <div class="ticker">▲ BTS/V leads overall rankings &nbsp;·&nbsp; BLACKPINK LISA highest social reach at 97.1M &nbsp;·&nbsp; SON HEUNG-MIN top athlete &nbsp;·&nbsp; FAKER leads esports &nbsp;·&nbsp; IU tops actor rankings &nbsp;·&nbsp; STRAY KIDS rising fast &nbsp;·&nbsp; IVE/WONYOUNG trending hot &nbsp;·&nbsp; G-DRAGON comeback surge &nbsp;·&nbsp; ▲ BTS/V leads overall rankings &nbsp;·&nbsp; BLACKPINK LISA highest social reach at 97.1M &nbsp;·&nbsp; SON HEUNG-MIN top athlete &nbsp;·&nbsp; FAKER leads esports &nbsp;·&nbsp; IU tops actor rankings &nbsp;·&nbsp; STRAY KIDS rising fast &nbsp;·&nbsp; IVE/WONYOUNG trending hot &nbsp;·&nbsp; G-DRAGON comeback surge &nbsp;·&nbsp;</div>
 </div>
 
-<!-- HOME -->
+<!-- ===== HOME ===== -->
 <div id="page-home" class="page active">
   <div class="hero">
     <div>
-      <div class="hero-eyebrow"><span class="live-dot"></span> Live Index · Updated Regularly</div>
+      <div class="hero-eyebrow"><span class="live-dot"></span> Live Index &nbsp;·&nbsp; Updated Regularly</div>
       <h1>The Power<em>Rankings</em>of Korean Stars</h1>
       <p class="hero-desc">KRANK scores 100+ Korean celebrities across K-Pop, acting, content creation, and athletics — combining social reach, media appearances, brand deals, and fan engagement into one authoritative number.</p>
       <div class="hero-btns">
@@ -179,7 +239,9 @@
     </div>
   </div>
   <div class="section">
-    <div class="section-header"><div><div class="section-title">Browse by <span>Category</span></div><div class="section-subtitle">EACH PAGE HAS ITS OWN LEADERBOARD · OVERALL RANK SHOWN PER ENTRY</div></div></div>
+    <div class="section-header">
+      <div><div class="section-title">Browse by <span>Category</span></div><div class="section-subtitle">EACH PAGE HAS ITS OWN LEADERBOARD · OVERALL RANK SHOWN PER ENTRY</div></div>
+    </div>
     <div class="category-cards">
       <div class="cat-card" onclick="showPage('kpop')"><span class="cat-card-icon">🎤</span><div class="cat-card-title">K-Pop</div><div class="cat-card-count">40 ARTISTS</div></div>
       <div class="cat-card" onclick="showPage('actors')"><span class="cat-card-icon">🎭</span><div class="cat-card-title">Actors</div><div class="cat-card-count">30 ACTORS</div></div>
@@ -195,17 +257,17 @@
   </div>
   <div class="feature-strip">
     <div class="feature-inner">
-      <div class="feature-item"><span class="feature-icon">🔄</span><div class="feature-title">Auto-Ranks</div><p class="feature-desc">Change any follower count or score — rankings re-sort instantly across all pages. No manual reordering needed.</p></div>
-      <div class="feature-item"><span class="feature-icon">📐</span><div class="feature-title">Score Formula</div><p class="feature-desc">Scores are calculated from 5 weighted inputs. You control the raw numbers; the formula does the rest.</p></div>
-      <div class="feature-item"><span class="feature-icon">🏷️</span><div class="feature-title">Dual Ranking</div><p class="feature-desc">Each celebrity has both an Overall rank and a Category rank. Both update automatically on every edit.</p></div>
+      <div class="feature-item"><span class="feature-icon">📊</span><div class="feature-title">Real-Time Data</div><p class="feature-desc">Scores built from follower counts, media presence, brand deals, fan activity, and search trends across 100+ celebrities.</p></div>
+      <div class="feature-item"><span class="feature-icon">📐</span><div class="feature-title">Score Formula</div><p class="feature-desc">Every KRANK score is calculated from 5 weighted inputs — transparent, consistent, and defensible to brands and investors.</p></div>
+      <div class="feature-item"><span class="feature-icon">🏷️</span><div class="feature-title">Dual Ranking</div><p class="feature-desc">Each celebrity has both an Overall rank and a Category rank so you can compare across and within categories.</p></div>
       <div class="feature-item"><span class="feature-icon">📈</span><div class="feature-title">Weekly Updates</div><p class="feature-desc">Rankings refresh regularly with the latest follower counts, brand deals, media scores, and fan activity data.</p></div>
     </div>
   </div>
 </div>
 
-<!-- RANKINGS ALL -->
+<!-- ===== RANKINGS ALL ===== -->
 <div id="page-rankings" class="page">
-  <div class="page-banner"><div class="page-banner-inner"><div><h2>Overall <span>Power Rankings</span></h2><p>All 100 celebrities · Click any row for details · Sorted by KRANK score</p></div><div class="page-banner-stat"><div class="big">100</div><div class="small">Auto-Ranked</div></div></div></div>
+  <div class="page-banner"><div class="page-banner-inner"><div><h2>Overall <span>Power Rankings</span></h2><p>All 100 celebrities · All categories · Click any row for details</p></div><div class="page-banner-stat"><div class="big">100</div><div class="small">Celebrities Ranked</div></div></div></div>
   <div class="section">
     <div class="rankings-layout">
       <div>
@@ -227,7 +289,7 @@
   </div>
 </div>
 
-<!-- K-POP -->
+<!-- ===== K-POP ===== -->
 <div id="page-kpop" class="page">
   <div class="page-banner"><div class="page-banner-inner"><div><h2>K-Pop <span>Rankings</span></h2><p>Category rank shown · Overall rank badge per entry · Click for details</p></div><div class="page-banner-stat"><div class="big">40</div><div class="small">Artists</div></div></div></div>
   <div class="section">
@@ -250,7 +312,7 @@
   </div>
 </div>
 
-<!-- ACTORS -->
+<!-- ===== ACTORS ===== -->
 <div id="page-actors" class="page">
   <div class="page-banner"><div class="page-banner-inner"><div><h2>Actor <span>Rankings</span></h2><p>Category rank shown · Overall rank badge per entry · Click for details</p></div><div class="page-banner-stat"><div class="big">30</div><div class="small">Actors</div></div></div></div>
   <div class="section">
@@ -271,7 +333,7 @@
   </div>
 </div>
 
-<!-- CREATORS -->
+<!-- ===== CREATORS ===== -->
 <div id="page-creators" class="page">
   <div class="page-banner"><div class="page-banner-inner"><div><h2>Creator <span>Rankings</span></h2><p>Category rank shown · Overall rank badge per entry · Click for details</p></div><div class="page-banner-stat"><div class="big">20</div><div class="small">Creators</div></div></div></div>
   <div class="section">
@@ -292,7 +354,7 @@
   </div>
 </div>
 
-<!-- ATHLETES -->
+<!-- ===== ATHLETES ===== -->
 <div id="page-athletes" class="page">
   <div class="page-banner"><div class="page-banner-inner"><div><h2>Athlete <span>Rankings</span></h2><p>Category rank shown · Overall rank badge per entry · Click for details</p></div><div class="page-banner-stat"><div class="big">10</div><div class="small">Athletes</div></div></div></div>
   <div class="section">
@@ -313,48 +375,36 @@
   </div>
 </div>
 
-<!-- HOW WE SCORE / API -->
+<!-- ===== METHODOLOGY ===== -->
 <div id="page-api" class="page">
   <div class="page-banner"><div class="page-banner-inner"><div><h2>How <span>Scores Work</span></h2><p>The formula behind every KRANK score</p></div></div></div>
   <div class="section" style="max-width:800px">
     <div class="formula-box">
       <div class="formula-title">🧮 The KRANK Score Formula</div>
       <div class="formula-eq">
-        KRANK Score = <br>
-        &nbsp;&nbsp;(Social Followers Score × 0.35) +<br>
-        &nbsp;&nbsp;(Media Appearances Score × 0.25) +<br>
-        &nbsp;&nbsp;(Brand Deals Score × 0.20) +<br>
-        &nbsp;&nbsp;(Fan Activity Score × 0.15) +<br>
-        &nbsp;&nbsp;(Search Trend Score × 0.05)
+        KRANK Score =<br>
+        &nbsp;&nbsp;(Social Followers Score &times; 0.35) +<br>
+        &nbsp;&nbsp;(Media Score &times; 0.25) +<br>
+        &nbsp;&nbsp;(Brand Deals Score &times; 0.20) +<br>
+        &nbsp;&nbsp;(Fan Activity Score &times; 0.15) +<br>
+        &nbsp;&nbsp;(Search Trend Score &times; 0.05)
       </div>
     </div>
-    <div class="section-header"><div><div class="section-title">Score <span>Input Guide</span></div><div class="section-subtitle">WHAT TO ENTER WHEN YOU CLICK EDIT ON ANY CELEBRITY</div></div></div>
+    <div class="section-header"><div><div class="section-title">Score <span>Input Guide</span></div><div class="section-subtitle">WHAT EACH INPUT MEANS</div></div></div>
     <table class="rank-table" style="margin-bottom:2rem">
       <thead><tr><th>FIELD</th><th>WHAT TO ENTER</th><th>SCALE</th><th>WEIGHT</th></tr></thead>
       <tbody>
         <tr class="rank-row"><td style="font-family:'Black Han Sans',sans-serif;color:var(--red)">Social Followers</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)">Total followers across all platforms (millions)</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem">0–100M+</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--red)">35%</td></tr>
-        <tr class="rank-row"><td style="font-family:'Black Han Sans',sans-serif;color:var(--gold)">Media Score</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)">Rate media presence 0–100 (TV, magazines, news)</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem">0–100</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--gold)">25%</td></tr>
+        <tr class="rank-row"><td style="font-family:'Black Han Sans',sans-serif;color:var(--gold)">Media Score</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)">TV, magazine, news presence rated 0–100</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem">0–100</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--gold)">25%</td></tr>
         <tr class="rank-row"><td style="font-family:'Black Han Sans',sans-serif;color:#4488ff">Brand Deals</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)">Number of active brand partnerships</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem">0–20+</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:#4488ff">20%</td></tr>
-        <tr class="rank-row"><td style="font-family:'Black Han Sans',sans-serif;color:#00d68f">Fan Activity</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)">Rate fan engagement 0–100 (streaming, fancafes, voting)</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem">0–100</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:#00d68f">15%</td></tr>
-        <tr class="rank-row"><td style="font-family:'Black Han Sans',sans-serif;color:#aa44ff">Search Trend</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)">Google Trends score (0–100, check trends.google.com)</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem">0–100</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:#aa44ff">5%</td></tr>
+        <tr class="rank-row"><td style="font-family:'Black Han Sans',sans-serif;color:#00d68f">Fan Activity</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)">Streaming, voting, fan cafe activity rated 0–100</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem">0–100</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:#00d68f">15%</td></tr>
+        <tr class="rank-row"><td style="font-family:'Black Han Sans',sans-serif;color:#aa44ff">Search Trend</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted)">Google Trends score (trends.google.com)</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem">0–100</td><td style="font-family:'Space Mono',monospace;font-size:0.65rem;color:#aa44ff">5%</td></tr>
       </tbody>
     </table>
-    <div class="formula-box">
-      <div class="formula-title">📋 Step-by-Step: How to Update a Celebrity</div>
-      <div style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted);line-height:2.2;letter-spacing:0.04em;">
-        1. Go to any Rankings page (K-Pop, Actors, etc.)<br>
-        2. Click on any celebrity row<br>
-        3. A popup shows their full stats and score breakdown<br>
-        4. Scroll down to the <span style="color:var(--red)">✏️ EDIT STATS</span> panel<br>
-        5. Enter the real numbers you've looked up<br>
-        6. Hit <span style="color:#00d68f">SAVE & RECALCULATE</span><br>
-        7. The score updates instantly — and ALL rankings re-sort automatically ✓
-      </div>
-    </div>
   </div>
 </div>
 
-<!-- MODAL -->
+<!-- ===== MODAL ===== -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">✕</button>
@@ -370,27 +420,20 @@
     <div class="score-breakdown" id="modalBreakdown"></div>
   </div>
 </div>
-</div>
-
 
 <footer>
-  <div><div class="footer-logo">KR<span>A</span>NK</div><div style="font-family:'Space Mono',monospace;font-size:0.52rem;color:var(--muted);margin-top:4px;letter-spacing:0.1em;">© 2026 KRANK INDEX · ALL RIGHTS RESERVED</div></div>
+  <div>
+    <div class="footer-logo">KR<span>A</span>NK</div>
+    <div style="font-family:'Space Mono',monospace;font-size:0.52rem;color:var(--muted);margin-top:4px;letter-spacing:0.1em;">© 2026 KRANK INDEX · ALL RIGHTS RESERVED</div>
+  </div>
   <div class="footer-links">
     <a href="#" onclick="return showPage('home')">Home</a>
     <a href="#" onclick="return showPage('rankings')">Rankings</a>
-    <a href="#" onclick="return showPage('api')">How It Works</a>
+    <a href="#" onclick="return showPage('api')">Methodology</a>
   </div>
 </footer>
 
 <script>
-// =============================================
-// DATABASE
-// Each celebrity has 5 raw input fields:
-//   followers (millions), media (0-100),
-//   brandDeals (count), fanActivity (0-100),
-//   searchTrend (0-100)
-// Score is CALCULATED from these — not stored manually
-// =============================================
 const DB = [
   // K-POP (40)
   {id:0,emoji:'🎤',name:'BTS / V',kr:'김태형 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:52.1,media:99,brandDeals:14,fanActivity:99,searchTrend:95,trend:'hot',ch:'up',ct:'+2.1'},
@@ -502,40 +545,30 @@ const DB = [
 ];
 
 // =============================================
-// SCORE CALCULATION — this is the key function
-// Change any raw input → score recalculates
+// SCORE CALCULATION
 // =============================================
 function calcScore(c) {
-  // Normalize followers to 0-100 scale (100M = 100 pts)
-  const followersScore = Math.min(100, (c.followers / 100) * 100);
-  // Brand deals: normalize to 0-100 (20 deals = 100 pts)
+  const followersScore = Math.min(100, c.followers);
   const brandScore = Math.min(100, (c.brandDeals / 20) * 100);
-
-  return Math.round(
-    (followersScore   * 0.35) +
-    (c.media          * 0.25) +
-    (brandScore       * 0.20) +
-    (c.fanActivity    * 0.15) +
-    (c.searchTrend    * 0.05)
-  ) / 1;  // keep one decimal
+  return +(
+    (followersScore * 0.35) +
+    (c.media        * 0.25) +
+    (brandScore     * 0.20) +
+    (c.fanActivity  * 0.15) +
+    (c.searchTrend  * 0.05)
+  ).toFixed(1);
 }
 
-// Compute scores and ranks
 function recomputeAll() {
-  DB.forEach(c => { c.score = +calcScore(c).toFixed(1); });
-  const sorted = [...DB].sort((a,b) => b.score - a.score);
-  sorted.forEach((c,i) => { DB[c.id].overallRank = i+1; });
-  ['kpop','actor','creator','athlete'].forEach(cat => {
-    const cs = [...DB].filter(c=>c.cat===cat).sort((a,b)=>b.score-a.score);
-    cs.forEach((c,i) => { DB[c.id].catRank = i+1; });
+  DB.forEach(c => { c.score = calcScore(c); });
+  [...DB].sort((a,b)=>b.score-a.score).forEach((c,i)=>{ DB[c.id].overallRank=i+1; });
+  ['kpop','actor','creator','athlete'].forEach(cat=>{
+    [...DB].filter(c=>c.cat===cat).sort((a,b)=>b.score-a.score).forEach((c,i)=>{ DB[c.id].catRank=i+1; });
   });
 }
 recomputeAll();
 
-// Trend label helper
-function trendLabel(t){
-  return {hot:'🔥 HOT',rising:'↑ RISING',stable:'— STABLE',falling:'↓ FALLING'}[t]||'— STABLE';
-}
+function trendLabel(t){ return {hot:'🔥 HOT',rising:'↑ RISING',stable:'— STABLE',falling:'↓ FALLING'}[t]||'— STABLE'; }
 
 // =============================================
 // PAGE ROUTING
@@ -543,14 +576,12 @@ function trendLabel(t){
 function showPage(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
-  const pe=document.getElementById('page-'+page);
-  if(pe)pe.classList.add('active');
-  const ne=document.getElementById('nav-'+page);
-  if(ne)ne.classList.add('active');
+  const pe=document.getElementById('page-'+page); if(pe)pe.classList.add('active');
+  const ne=document.getElementById('nav-'+page);  if(ne)ne.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   if(page==='rankings')renderTable('all','all');
-  if(page==='kpop')renderTable('kpop','kpop');
-  if(page==='actors')renderTable('actors','actor');
+  if(page==='kpop')    renderTable('kpop','kpop');
+  if(page==='actors')  renderTable('actors','actor');
   if(page==='creators')renderTable('creators','creator');
   if(page==='athletes')renderTable('athletes','athlete');
   return false;
@@ -559,13 +590,7 @@ function showPage(page){
 // =============================================
 // TABLE RENDERING
 // =============================================
-const state = {
-  all:{filter:'all',search:''},
-  kpop:{filter:'kpop',search:''},
-  actors:{filter:'actor',search:''},
-  creators:{filter:'creator',search:''},
-  athletes:{filter:'athlete',search:''}
-};
+const state={all:{filter:'all',search:''},kpop:{filter:'kpop',search:''},actors:{filter:'actor',search:''},creators:{filter:'creator',search:''},athletes:{filter:'athlete',search:''}};
 
 function setFilter(el,page,filter){
   el.closest('.filter-row').querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
@@ -573,10 +598,7 @@ function setFilter(el,page,filter){
   state[page].filter=filter;
   renderTable(page,filter);
 }
-function filterTable(page,q){
-  state[page].search=q.toLowerCase();
-  renderTable(page,state[page].filter);
-}
+function filterTable(page,q){ state[page].search=q.toLowerCase(); renderTable(page,state[page].filter); }
 
 function renderTable(page,filter){
   const tbody=document.getElementById('rankTable-'+page);
@@ -586,12 +608,9 @@ function renderTable(page,filter){
   const isCat=page!=='all';
   const catMap={kpop:'kpop',actors:'actor',creators:'creator',athletes:'athlete'};
 
-  let data;
-  if(isCat){
-    data=[...DB].filter(c=>c.cat===catMap[page]).sort((a,b)=>a.catRank-b.catRank);
-  } else {
-    data=[...DB].sort((a,b)=>a.overallRank-b.overallRank);
-  }
+  let data=isCat
+    ?[...DB].filter(c=>c.cat===catMap[page]).sort((a,b)=>a.catRank-b.catRank)
+    :[...DB].sort((a,b)=>a.overallRank-b.overallRank);
 
   data=data.filter(c=>{
     const mf=filter==='all'||c.tags.includes(filter)||c.trend===filter||c.cat===filter;
@@ -613,10 +632,7 @@ function renderTable(page,filter){
         <td><div class="celeb-info"><div class="celeb-avatar">${c.emoji}</div><div>
           <div class="celeb-name">${c.name}</div>
           <div class="celeb-name-kr">${c.kr}</div>
-          <div class="celeb-meta">
-            ${c.tags.slice(0,2).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')}
-            ${ob}
-          </div>
+          <div class="celeb-meta">${c.tags.slice(0,2).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')}${ob}</div>
         </div></div></td>
         <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${Math.min(100,c.followers)}%"></div></div><span class="metric-val">${social}</span></div></td>
         <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${c.media}%;background:#c8a84b"></div></div><span class="metric-val">${c.media}/100</span></div></td>
@@ -654,25 +670,46 @@ function renderSidePanel(page,data){
           <div class="trending-score">${c.score}</div>
         </li>`).join('')}
       </ul>
-    </div>
-  `;
+    </div>`;
 }
 
 // =============================================
-// MODAL — click any row to see full details
+// HOME TABLE
+// =============================================
+function renderHomeTable(){
+  const t=document.getElementById('homeTable');
+  if(!t)return;
+  const top10=[...DB].sort((a,b)=>a.overallRank-b.overallRank).slice(0,10);
+  t.innerHTML=`<thead><tr><th>RANK</th><th>Celebrity</th><th>Social</th><th>Media</th><th>Trend</th><th>Score</th></tr></thead><tbody>`
+    +top10.map((c,i)=>{
+      const social=c.followers>=1?c.followers.toFixed(1)+'M':Math.round(c.followers*1000)+'K';
+      return `<tr class="rank-row" onclick="openModal(${c.id})">
+        <td class="rank-num ${i===0?'gold':i===1?'silver':i===2?'bronze':''}">${i+1}</td>
+        <td><div class="celeb-info"><div class="celeb-avatar">${c.emoji}</div><div>
+          <div class="celeb-name">${c.name}</div><div class="celeb-name-kr">${c.kr}</div>
+          <div class="celeb-meta">${c.tags.slice(0,2).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')}</div>
+        </div></div></td>
+        <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${Math.min(100,c.followers)}%"></div></div><span class="metric-val">${social}</span></div></td>
+        <td><div class="metric-bar"><div class="bar-track"><div class="bar-fill" style="width:${c.media}%;background:#c8a84b"></div></div><span class="metric-val">${c.media}/100</span></div></td>
+        <td><span class="trend-badge ${c.trend}">${trendLabel(c.trend)}</span></td>
+        <td><div class="power-score">${c.score}</div><div class="score-change ${c.ch}">${c.ch==='up'?'▲':c.ch==='down'?'▼':'—'} ${c.ct} pts</div></td>
+      </tr>`;
+    }).join('')+'</tbody>';
+}
+
+// =============================================
+// MODAL
 // =============================================
 function openModal(id){
   const c=DB[id];
   document.getElementById('modalRank').textContent='#'+c.overallRank;
   document.getElementById('modalName').textContent=c.name;
   document.getElementById('modalNameKr').textContent=c.kr;
-  document.getElementById('modalBadges').innerHTML=`
-    ${c.tags.slice(0,3).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')}
-    <span class="overall-badge">Overall #${c.overallRank}</span>
-    ${c.catRank?`<span class="cat-badge">${c.cat.toUpperCase()} #${c.catRank}</span>`:''}
-  `;
+  document.getElementById('modalBadges').innerHTML=
+    c.tags.slice(0,3).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')+
+    `<span class="overall-badge">Overall #${c.overallRank}</span>`+
+    (c.catRank?`<span class="cat-badge">${c.cat.toUpperCase()} #${c.catRank}</span>`:'');
   document.getElementById('modalScore').textContent=c.score;
-
   const social=c.followers>=1?c.followers.toFixed(1)+'M':Math.round(c.followers*1000)+'K';
   document.getElementById('modalStats').innerHTML=`
     <div class="modal-stat-box"><div class="modal-stat-label">Followers</div><div class="modal-stat-val">${social}</div></div>
@@ -680,31 +717,20 @@ function openModal(id){
     <div class="modal-stat-box"><div class="modal-stat-label">Brand Deals</div><div class="modal-stat-val">${c.brandDeals} Active</div></div>
     <div class="modal-stat-box"><div class="modal-stat-label">Fan Activity</div><div class="modal-stat-val">${c.fanActivity}/100</div></div>
     <div class="modal-stat-box"><div class="modal-stat-label">Search Trend</div><div class="modal-stat-val">${c.searchTrend}/100</div></div>
-    <div class="modal-stat-box"><div class="modal-stat-label">Weekly Change</div><div class="modal-stat-val" style="color:${c.ch==='up'?'#00d68f':c.ch==='down'?'var(--red)':'var(--muted)'}">${c.ch==='up'?'▲':c.ch==='down'?'▼':'—'} ${c.ct} pts</div></div>
-  `;
-
+    <div class="modal-stat-box"><div class="modal-stat-label">Weekly Change</div><div class="modal-stat-val" style="color:${c.ch==='up'?'#00d68f':c.ch==='down'?'var(--red)':'var(--muted)'}">${c.ch==='up'?'▲':c.ch==='down'?'▼':'—'} ${c.ct} pts</div></div>`;
   const colors=['#e8003d','#c8a84b','#4488ff','#00d68f','#aa44ff'];
   const labels=['Followers (35%)','Media (25%)','Brand Deals (20%)','Fan Activity (15%)','Search Trend (5%)'];
-  const vals=[
-    Math.min(100,c.followers)*0.35,
-    c.media*0.25,
-    Math.min(100,(c.brandDeals/20)*100)*0.20,
-    c.fanActivity*0.15,
-    c.searchTrend*0.05
-  ];
+  const vals=[Math.min(100,c.followers)*0.35, c.media*0.25, Math.min(100,(c.brandDeals/20)*100)*0.20, c.fanActivity*0.15, c.searchTrend*0.05];
   document.getElementById('modalBreakdown').innerHTML=labels.map((l,i)=>`
     <div class="breakdown-row">
       <div class="breakdown-label" style="font-size:0.52rem;width:135px">${l}</div>
       <div class="breakdown-track"><div class="breakdown-fill" style="width:${Math.min(100,vals[i]*2)}%;background:${colors[i]}"></div></div>
       <div class="breakdown-val">${vals[i].toFixed(1)}</div>
     </div>`).join('');
-
   document.getElementById('modalOverlay').classList.add('open');
 }
+function closeModal(e){ if(e.target.id==='modalOverlay')document.getElementById('modalOverlay').classList.remove('open'); }
 
-function closeModal(e){
-  if(e.target.id==='modalOverlay')document.getElementById('modalOverlay').classList.remove('open');
-}
 // INIT
 renderHomeTable();
 </script>

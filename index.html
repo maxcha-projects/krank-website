@@ -767,6 +767,7 @@ function recomputeAll() {
   });
 }
 recomputeAll();
+DB.forEach(c => { c.history[c.history.length - 1] = c.score; });
 
 function trendLabel(t){ return {hot:'🔥 HOT',rising:'↑ RISING',stable:'— STABLE',falling:'↓ FALLING'}[t]||'— STABLE'; }
 

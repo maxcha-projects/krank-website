@@ -6,21 +6,21 @@
 <title>KRANK — Korean Influence Power Index</title>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root{--black:#0a0a0a;--white:#f5f0eb;--red:#e8003d;--gold:#c8a84b;--silver:#8a9ba8;--dim:#1a1a1a;--card:#111111;--border:#222222;--muted:#555;}
+  :root{--black:#e4dfd9;--white:#1a1e2e;--red:#b8923a;--gold:#b8923a;--silver:#8a8480;--dim:#dbd5ce;--card:#f2ede7;--border:#ccc6be;--muted:#8a8480;--navy:#1a1e2e;--cream:#f7f3ed;--crimson:#c0392b;--gold-light:#e8d5a3;}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--black);color:var(--white);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;}
-  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.5;}
+  body{background:var(--black);background:linear-gradient(150deg,#d8e4ef 0%,#e4ddd5 45%,#ede5da 100%);background-attachment:fixed;color:var(--white);font-family:'Noto Sans KR',sans-serif;overflow-x:hidden;}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100;opacity:0.18;}
 
   /* NAV */
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,10,0.97);backdrop-filter:blur(12px);z-index:50;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(228,221,213,0.97);backdrop-filter:blur(12px);z-index:50;box-shadow:0 1px 0 var(--border);}
   .logo{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;letter-spacing:0.15em;color:var(--white);cursor:pointer;}
-  .logo span{color:var(--red);}
-  .logo-sub{font-family:'Space Mono',monospace;font-size:0.55rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;margin-top:2px;display:block;}
+  .logo span{color:var(--gold);}
+  .logo-sub{font-family:'Space Mono',monospace;font-size:0.55rem;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-top:2px;display:block;}
   .nav-links{display:flex;gap:0;list-style:none;}
-  .nav-links li a{color:var(--muted);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;padding:0.5rem 0.9rem;display:block;border-bottom:2px solid transparent;}
-  .nav-links li a:hover{color:var(--white);}
-  .nav-links li a.active{color:var(--white);border-bottom:2px solid var(--red);}
-  .nav-cta{background:var(--red);color:var(--white)!important;border-bottom:none!important;}
+  .nav-links li a{color:var(--gold);text-decoration:none;font-family:'Space Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;padding:0.5rem 0.9rem;display:block;border-bottom:2px solid transparent;}
+  .nav-links li a:hover{color:var(--navy);}
+  .nav-links li a.active{color:#b8923a;border-bottom:2px solid #b8923a;}
+  .nav-cta{background:var(--navy);color:#b8923a!important;border-bottom:none!important;letter-spacing:0.1em;}
 
   /* PAGES */
   .page{display:none;animation:fadeUp 0.35s ease both;}
@@ -28,45 +28,45 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
   /* TICKER */
-  .ticker-wrap{overflow:hidden;background:var(--red);padding:0.6rem 0;white-space:nowrap;}
-  .ticker{display:inline-block;animation:ticker 40s linear infinite;font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--white);}
+  .ticker-wrap{overflow:hidden;background:var(--navy);padding:0.6rem 0;white-space:nowrap;}
+  .ticker{display:inline-block;animation:ticker 40s linear infinite;font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:#b8923a;}
   @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* HERO */
   .hero{padding:4rem 2.5rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1400px;margin:0 auto;}
-  .hero-eyebrow{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.25em;color:var(--red);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
-  .hero-eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--red);}
+  .hero-eyebrow{font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
+  .hero-eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold);}
   h1{font-family:'Black Han Sans',sans-serif;font-size:clamp(2.6rem,5vw,4.8rem);line-height:1;margin-bottom:1.4rem;}
-  h1 em{font-style:normal;color:var(--red);display:block;}
+  h1 em{font-style:normal;color:var(--gold);display:block;}
   .hero-desc{color:var(--muted);font-size:0.92rem;line-height:1.8;max-width:480px;margin-bottom:2rem;}
   .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
-  .btn-primary{background:var(--red);color:var(--white);padding:0.8rem 1.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.2s;}
-  .btn-primary:hover{background:#ff0047;transform:translateY(-2px);}
-  .btn-secondary{background:transparent;color:var(--white);padding:0.8rem 1.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:all 0.2s;}
-  .btn-secondary:hover{border-color:var(--white);}
+  .btn-primary{background:var(--navy);color:#b8923a;padding:0.8rem 1.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.2s;}
+  .btn-primary:hover{background:#2c3355;transform:translateY(-2px);}
+  .btn-secondary{background:transparent;color:var(--gold);padding:0.8rem 1.8rem;font-family:'Space Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--gold);cursor:pointer;transition:all 0.2s;}
+  .btn-secondary:hover{border-color:var(--navy);color:var(--navy);}
 
   /* STATS BAR */
-  .stats-bar{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);overflow:hidden;}
+  .stats-bar{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 12px rgba(26,30,46,0.08);}
   .stat-item{padding:1.8rem;border-right:1px solid var(--border);text-align:center;}
   .stat-item:last-child{border-right:none;}
   .stat-num{font-family:'Black Han Sans',sans-serif;font-size:2.6rem;color:var(--white);display:block;line-height:1;}
-  .stat-num .accent{color:var(--red);}
-  .stat-label{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);letter-spacing:0.18em;text-transform:uppercase;margin-top:0.4rem;display:block;}
+  .stat-num .accent{color:var(--gold);}
+  .stat-label{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;margin-top:0.4rem;display:block;}
 
   /* SECTION */
   .section{max-width:1400px;margin:0 auto;padding:2.5rem 2.5rem;}
   .section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.8rem;border-bottom:1px solid var(--border);padding-bottom:1.2rem;}
   .section-title{font-family:'Black Han Sans',sans-serif;font-size:1.8rem;}
-  .section-title span{color:var(--red);}
-  .section-subtitle{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);margin-top:0.3rem;letter-spacing:0.1em;}
+  .section-title span{color:var(--gold);}
+  .section-subtitle{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--navy);opacity:0.75;margin-top:0.3rem;letter-spacing:0.1em;font-weight:600;}
 
   /* CATEGORY CARDS */
   .category-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:2.5rem;}
-  .cat-card{background:var(--card);padding:1.6rem 1rem;cursor:pointer;transition:background 0.2s;text-align:center;}
+  .cat-card{background:var(--card);border:1px solid var(--border);padding:1.6rem 1rem;cursor:pointer;transition:background 0.2s;text-align:center;}
   .cat-card:hover{background:var(--dim);}
   .cat-card-icon{font-size:1.9rem;margin-bottom:0.5rem;display:block;}
   .cat-card-title{font-family:'Black Han Sans',sans-serif;font-size:0.95rem;margin-bottom:0.2rem;}
-  .cat-card-count{font-family:'Space Mono',monospace;font-size:0.52rem;color:var(--muted);letter-spacing:0.08em;}
+  .cat-card-count{font-family:'Space Mono',monospace;font-size:0.52rem;color:var(--navy);opacity:0.75;letter-spacing:0.08em;font-weight:600;}
 
   /* FEATURE STRIP */
   .feature-strip{background:var(--dim);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem;}
@@ -75,28 +75,28 @@
   .feature-item:last-child{border-right:none;}
   .feature-icon{font-size:1.8rem;margin-bottom:0.8rem;display:block;}
   .feature-title{font-family:'Black Han Sans',sans-serif;font-size:0.95rem;margin-bottom:0.4rem;}
-  .feature-desc{font-size:0.74rem;color:var(--muted);line-height:1.7;}
+  .feature-desc{font-size:0.74rem;color:var(--navy);opacity:0.7;line-height:1.7;}
 
   /* PAGE BANNER */
   .page-banner{background:var(--dim);border-bottom:1px solid var(--border);padding:2.5rem;}
   .page-banner-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;}
   .page-banner h2{font-family:'Black Han Sans',sans-serif;font-size:2.8rem;}
-  .page-banner h2 span{color:var(--red);}
-  .page-banner p{font-family:'Space Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:0.12em;margin-top:0.4rem;text-transform:uppercase;}
+  .page-banner h2 span{color:var(--gold);}
+  .page-banner p{font-family:'Space Mono',monospace;font-size:0.62rem;color:var(--navy);opacity:0.75;letter-spacing:0.12em;margin-top:0.4rem;text-transform:uppercase;font-weight:600;}
   .page-banner-stat .big{font-family:'Black Han Sans',sans-serif;font-size:2.8rem;color:var(--red);line-height:1;text-align:right;}
-  .page-banner-stat .small{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;text-align:right;}
+  .page-banner-stat .small{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--navy);opacity:0.75;letter-spacing:0.12em;text-transform:uppercase;text-align:right;font-weight:600;}
 
   /* SEARCH + FILTER */
   .search-bar{display:flex;margin-bottom:1.2rem;}
   .search-input{flex:1;background:var(--dim);border:1px solid var(--border);border-right:none;padding:0.75rem 1.2rem;color:var(--white);font-family:'Space Mono',monospace;font-size:0.72rem;outline:none;}
-  .search-input::placeholder{color:var(--muted);}
+  .search-input::placeholder{color:var(--gold);opacity:0.7;}
   .search-input:focus{border-color:var(--red);}
-  .search-btn{background:var(--red);border:none;padding:0 1.2rem;color:var(--white);cursor:pointer;font-size:1rem;}
+  .search-btn{background:var(--navy);border:none;padding:0 1.2rem;color:var(--white);cursor:pointer;font-size:1rem;}
   .filter-row{display:flex;gap:0.5rem;margin-bottom:1.2rem;flex-wrap:wrap;}
-  .filter-pill{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0.9rem;border:1px solid var(--border);color:var(--muted);cursor:pointer;transition:all 0.2s;background:transparent;}
-  .filter-pill:hover{color:var(--white);border-color:var(--white);}
-  .filter-pill.active{background:var(--red);color:var(--white);border-color:var(--red);}
-  .results-count{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--muted);margin-bottom:0.8rem;letter-spacing:0.06em;}
+  .filter-pill{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0.9rem;border:1px solid var(--gold);color:var(--gold);cursor:pointer;transition:all 0.2s;background:transparent;}
+  .filter-pill:hover{color:var(--navy);border-color:var(--navy);}
+  .filter-pill.active{background:var(--navy);color:#b8923a;border-color:var(--navy);}
+  .results-count{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--navy);opacity:0.75;margin-bottom:0.8rem;letter-spacing:0.06em;font-weight:600;}
 
   /* RANKINGS LAYOUT */
   .rankings-layout{display:grid;grid-template-columns:1fr 290px;gap:2rem;align-items:start;}
@@ -104,99 +104,111 @@
   /* TABLE */
   .rank-table{width:100%;border-collapse:collapse;}
   .rank-table thead tr{border-bottom:1px solid var(--border);}
-  .rank-table th{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);padding:0.65rem 0.75rem;text-align:left;font-weight:400;}
+  .rank-table th{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--navy);opacity:0.75;padding:0.65rem 0.75rem;text-align:left;font-weight:700;}
   .rank-table th:first-child{width:50px;text-align:center;}
   .rank-table th:last-child{text-align:right;}
   .rank-row{border-bottom:1px solid var(--border);transition:background 0.15s;cursor:pointer;}
-  .rank-row:hover{background:var(--dim);}
+  .rank-row:hover{background:rgba(216,228,239,0.35);}
   .rank-row td{padding:0.8rem 0.75rem;vertical-align:middle;}
   .rank-num{font-family:'Black Han Sans',sans-serif;font-size:1.4rem;text-align:center;color:var(--border);}
   .rank-num.gold{color:var(--gold);}
   .rank-num.silver{color:var(--silver);}
   .rank-num.bronze{color:#8b6f4e;}
   .celeb-info{display:flex;align-items:center;gap:0.75rem;}
-  .celeb-avatar{width:42px;height:42px;background:var(--dim);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;border:1px solid var(--border);}
+  .celeb-avatar{width:46px;height:46px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:4px;font-family:"Black Han Sans",sans-serif;font-size:0.88rem;font-weight:900;color:#fff;letter-spacing:0.03em;text-shadow:0 1px 3px rgba(0,0,0,0.5);position:relative;overflow:hidden;}
+  .celeb-avatar span{position:relative;z-index:1;}
+  .celeb-avatar::after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,0.15) 0%,rgba(0,0,0,0.2) 100%);}
   .celeb-name{font-family:'Black Han Sans',sans-serif;font-size:0.92rem;}
-  .celeb-name-kr{font-size:0.68rem;color:var(--muted);margin-top:1px;font-weight:300;}
+  .celeb-name-kr{font-size:0.68rem;color:var(--navy);opacity:0.65;margin-top:1px;font-weight:500;}
   .celeb-meta{display:flex;align-items:center;gap:0.4rem;margin-top:3px;flex-wrap:wrap;}
   .tag{font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.06em;text-transform:uppercase;padding:2px 5px;border:1px solid var(--border);color:var(--muted);}
-  .tag.kpop{border-color:#e8003d33;color:var(--red);}
-  .tag.actor{border-color:#c8a84b33;color:var(--gold);}
-  .tag.creator{border-color:#4488ff33;color:#4488ff;}
-  .tag.athlete{border-color:#00d68f33;color:#00d68f;}
-  .overall-badge{font-family:'Space Mono',monospace;font-size:0.46rem;background:rgba(200,168,75,0.12);border:1px solid rgba(200,168,75,0.3);color:var(--gold);padding:2px 5px;white-space:nowrap;}
-  .cat-badge{font-family:'Space Mono',monospace;font-size:0.46rem;background:rgba(232,0,61,0.1);border:1px solid rgba(232,0,61,0.25);color:var(--red);padding:2px 5px;white-space:nowrap;}
-  .power-score{font-family:'Black Han Sans',sans-serif;font-size:1.65rem;color:var(--white);text-align:right;}
+  .tag.kpop{border-color:rgba(184,146,58,0.4);color:#b8923a;}
+  .tag.actor{border-color:rgba(26,30,46,0.25);color:#2c3355;}
+  .tag.creator{border-color:rgba(41,128,185,0.3);color:#1a5f8a;}
+  .tag.athlete{border-color:rgba(39,174,96,0.3);color:#1e8449;}
+  .overall-badge{font-family:'Space Mono',monospace;font-size:0.46rem;background:rgba(184,146,58,0.12);border:1px solid rgba(184,146,58,0.4);color:#b8923a;padding:2px 5px;white-space:nowrap;}
+  .cat-badge{font-family:'Space Mono',monospace;font-size:0.46rem;background:rgba(26,30,46,0.08);border:1px solid rgba(26,30,46,0.2);color:#2c3355;padding:2px 5px;white-space:nowrap;}
+  .power-score{font-family:'Black Han Sans',sans-serif;font-size:1.65rem;color:var(--navy);text-align:right;}
   .score-change{font-family:'Space Mono',monospace;font-size:0.55rem;text-align:right;margin-top:2px;}
-  .score-change.up{color:#00d68f;}
-  .score-change.down{color:var(--red);}
+  .score-change.up{color:#1e8449;}
+  .score-change.down{color:var(--crimson);}
   .score-change.flat{color:var(--muted);}
   .metric-bar{display:flex;align-items:center;gap:0.5rem;}
   .bar-track{width:65px;height:3px;background:var(--border);position:relative;overflow:hidden;}
-  .bar-fill{position:absolute;top:0;left:0;height:100%;background:var(--red);}
+  .bar-fill{position:absolute;top:0;left:0;height:100%;background:var(--gold);}
   .metric-val{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--muted);white-space:nowrap;}
   .trend-badge{display:inline-flex;align-items:center;font-family:'Space Mono',monospace;font-size:0.5rem;padding:3px 6px;}
-  .trend-badge.hot{background:rgba(232,0,61,0.1);border:1px solid rgba(232,0,61,0.3);color:var(--red);}
-  .trend-badge.rising{background:rgba(0,214,143,0.1);border:1px solid rgba(0,214,143,0.3);color:#00d68f;}
-  .trend-badge.stable{background:rgba(138,155,168,0.1);border:1px solid rgba(138,155,168,0.2);color:var(--silver);}
-  .trend-badge.falling{background:rgba(232,0,61,0.07);border:1px solid rgba(232,0,61,0.15);color:#ff6688;}
+  .trend-badge.hot{background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.35);color:var(--crimson);}
+  .trend-badge.rising{background:rgba(39,174,96,0.12);border:1px solid rgba(39,174,96,0.35);color:#1e8449;}
+  .trend-badge.stable{background:rgba(138,132,128,0.1);border:1px solid rgba(138,132,128,0.25);color:#6b6560;}
+  .trend-badge.falling{background:rgba(192,57,43,0.07);border:1px solid rgba(192,57,43,0.2);color:#a93226;}
 
   /* SIDE PANEL */
   .side-panel{position:sticky;top:80px;display:flex;flex-direction:column;gap:1.4rem;}
-  .panel-card{background:var(--card);border:1px solid var(--border);padding:1.3rem;}
-  .panel-title{font-family:'Black Han Sans',sans-serif;font-size:0.8rem;letter-spacing:0.1em;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+  .panel-card{background:var(--card);border:1px solid var(--border);padding:1.3rem;box-shadow:0 2px 8px rgba(26,30,46,0.06);}
+  .panel-title{font-family:'Black Han Sans',sans-serif;font-size:0.8rem;letter-spacing:0.1em;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
   .panel-title::after{content:'';flex:1;height:1px;background:var(--border);}
   .trending-list{list-style:none;display:flex;flex-direction:column;gap:0.65rem;}
   .trending-item{display:flex;align-items:center;gap:0.65rem;padding-bottom:0.65rem;border-bottom:1px solid var(--border);cursor:pointer;}
   .trending-item:last-child{border-bottom:none;padding-bottom:0;}
   .trending-item:hover .trending-name{color:var(--red);}
   .trending-rank{font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--muted);width:22px;flex-shrink:0;}
-  .trending-avatar{width:28px;height:28px;background:var(--dim);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+  .trending-avatar{width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:3px;font-family:"Black Han Sans",sans-serif;font-size:0.6rem;font-weight:900;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.5);position:relative;overflow:hidden;}
+  .trending-avatar::after{content:"";position:absolute;inset:0;background:linear-gradient(145deg,rgba(255,255,255,0.15) 0%,rgba(0,0,0,0.2) 100%);}
   .trending-name{font-size:0.72rem;font-weight:700;transition:color 0.15s;}
-  .trending-meta{font-family:'Space Mono',monospace;font-size:0.5rem;color:var(--muted);margin-top:1px;}
-  .trending-score{margin-left:auto;font-family:'Black Han Sans',sans-serif;font-size:0.9rem;}
+  .trending-meta{font-family:'Space Mono',monospace;font-size:0.5rem;color:var(--gold);margin-top:1px;}
+  .trending-score{margin-left:auto;font-family:'Black Han Sans',sans-serif;font-size:0.9rem;color:var(--navy);}
   .score-breakdown{display:flex;flex-direction:column;gap:0.5rem;}
   .breakdown-row{display:flex;align-items:center;gap:0.6rem;}
-  .breakdown-label{font-family:'Space Mono',monospace;font-size:0.54rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);width:82px;flex-shrink:0;}
+  .breakdown-label{font-family:'Space Mono',monospace;font-size:0.54rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--navy);opacity:0.75;width:82px;flex-shrink:0;font-weight:600;}
   .breakdown-track{flex:1;height:4px;background:var(--border);position:relative;overflow:hidden;}
   .breakdown-fill{position:absolute;top:0;left:0;height:100%;}
   .breakdown-val{font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--white);width:26px;text-align:right;flex-shrink:0;}
 
   /* MODAL */
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(26,30,46,0.88);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
   .modal-overlay.open{display:flex;}
-  .modal{background:var(--card);border:1px solid var(--border);max-width:560px;width:92%;padding:2.5rem;position:relative;animation:fadeUp 0.3s ease;max-height:90vh;overflow-y:auto;}
+  .modal{background:var(--card);border:1px solid var(--border);box-shadow:0 8px 40px rgba(26,30,46,0.18);max-width:560px;width:92%;padding:2.5rem;position:relative;animation:fadeUp 0.3s ease;max-height:90vh;overflow-y:auto;}
   .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;}
   .modal-close:hover{color:var(--white);}
-  .modal-rank{font-family:'Black Han Sans',sans-serif;font-size:4.5rem;color:var(--border);line-height:1;}
+  .modal-rank{font-family:'Black Han Sans',sans-serif;font-size:3rem;color:var(--border);line-height:1;}
   .modal-name{font-family:'Black Han Sans',sans-serif;font-size:1.75rem;margin-bottom:0.2rem;}
-  .modal-name-kr{font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;font-weight:300;}
+  .modal-name-kr{font-size:0.82rem;color:var(--gold);margin-bottom:0.5rem;font-weight:300;}
   .modal-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
   .modal-score-display{display:flex;align-items:baseline;gap:0.5rem;margin-bottom:1.8rem;padding-bottom:1.4rem;border-bottom:1px solid var(--border);}
-  .modal-score-num{font-family:'Black Han Sans',sans-serif;font-size:3.2rem;color:var(--red);line-height:1;}
-  .modal-score-label{font-family:'Space Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;padding-bottom:0.4rem;}
+  .modal-score-num{font-family:'Black Han Sans',sans-serif;font-size:3.2rem;color:var(--navy);line-height:1;}
+  .modal-score-label{font-family:'Space Mono',monospace;font-size:0.62rem;color:var(--navy);opacity:0.75;letter-spacing:0.1em;text-transform:uppercase;padding-bottom:0.4rem;font-weight:600;}
   .modal-stats{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1.4rem;}
   .modal-stat-box{border:1px solid var(--border);padding:0.9rem;}
-  .modal-stat-label{font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.25rem;}
+  .modal-stat-label{font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);opacity:0.75;margin-bottom:0.25rem;font-weight:700;}
   .modal-stat-val{font-family:'Black Han Sans',sans-serif;font-size:1.2rem;}
 
   /* FORMULA PAGE */
   .formula-box{background:var(--dim);border:1px solid var(--border);padding:1.2rem;margin-bottom:1.5rem;}
-  .formula-title{font-family:'Black Han Sans',sans-serif;font-size:0.82rem;margin-bottom:0.8rem;}
-  .formula-eq{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.06em;line-height:2;}
+  .formula-title{font-family:'Black Han Sans',sans-serif;font-size:0.82rem;color:var(--navy);margin-bottom:0.8rem;}
+  .formula-eq{font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--navy);letter-spacing:0.06em;line-height:2;font-weight:600;}
 
   /* MISC */
-  .live-dot{display:inline-block;width:6px;height:6px;background:var(--red);border-radius:50%;margin-right:4px;animation:pulse 1.5s ease infinite;}
+  .live-dot{display:inline-block;width:6px;height:6px;background:var(--crimson);border-radius:50%;margin-right:4px;animation:pulse 1.5s ease infinite;}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.3)}}
   footer{border-top:1px solid var(--border);padding:1.8rem 2.5rem;display:flex;justify-content:space-between;align-items:center;max-width:1400px;margin:0 auto;}
   .footer-logo{font-family:'Black Han Sans',sans-serif;font-size:1.1rem;}
-  .footer-logo span{color:var(--red);}
+  .footer-logo span{color:var(--gold);}
   .footer-links{display:flex;gap:1.8rem;}
-  .footer-links a{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;transition:color 0.2s;}
-  .footer-links a:hover{color:var(--white);}
+  .footer-links a{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--gold);text-decoration:none;letter-spacing:0.1em;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--navy);}
 
   @media(max-width:1024px){.rankings-layout{grid-template-columns:1fr;}.side-panel{position:static;}}
   @media(max-width:768px){.hero{grid-template-columns:1fr;gap:2rem;}.feature-inner{grid-template-columns:1fr 1fr;}.category-cards{grid-template-columns:1fr 1fr;}.nav-links{display:none;}.rank-table th:nth-child(3),.rank-table td:nth-child(3),.rank-table th:nth-child(4),.rank-table td:nth-child(4){display:none;}}
+
+  /* RANK HISTORY CHART */
+  .chart-section{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--border);}
+  .chart-title{font-family:'Black Han Sans',sans-serif;font-size:0.78rem;letter-spacing:0.1em;color:var(--navy);opacity:0.8;margin-bottom:0.8rem;display:flex;align-items:center;justify-content:space-between;font-weight:700;}
+  .chart-title span{font-family:'Space Mono',monospace;font-size:0.55rem;color:var(--navy);opacity:0.7;font-weight:600;}
+  .chart-wrap{position:relative;width:100%;height:110px;}
+  .chart-wrap canvas{width:100%!important;height:110px!important;}
+  .chart-labels{display:flex;justify-content:space-between;margin-top:4px;}
+  .chart-label{font-family:'Space Mono',monospace;font-size:0.48rem;color:var(--navy);opacity:0.7;letter-spacing:0.06em;font-weight:600;}
 </style>
 </head>
 <body>
@@ -408,7 +420,10 @@
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">✕</button>
-    <div class="modal-rank" id="modalRank"></div>
+    <div style="display:flex;align-items:center;gap:1.2rem;margin-bottom:0.8rem;">
+      <div id="modalHeader"></div>
+      <div><div class="modal-rank" id="modalRank" style="font-size:3rem;line-height:1"></div></div>
+    </div>
     <div class="modal-name" id="modalName"></div>
     <div class="modal-name-kr" id="modalNameKr"></div>
     <div class="modal-badges" id="modalBadges"></div>
@@ -418,6 +433,11 @@
     </div>
     <div class="modal-stats" id="modalStats"></div>
     <div class="score-breakdown" id="modalBreakdown"></div>
+    <div class="chart-section">
+      <div class="chart-title">SCORE HISTORY <span>LAST 8 WEEKS</span></div>
+      <div class="chart-wrap"><canvas id="rankChart"></canvas></div>
+      <div class="chart-labels" id="chartLabels"></div>
+    </div>
   </div>
 </div>
 
@@ -436,113 +456,222 @@
 <script>
 const DB = [
   // K-POP (40)
-  {id:0,emoji:'🎤',name:'BTS / V',kr:'김태형 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:52.1,media:99,brandDeals:14,fanActivity:99,searchTrend:95,trend:'hot',ch:'up',ct:'+2.1'},
-  {id:1,emoji:'💎',name:'BLACKPINK / JENNIE',kr:'김제니 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group'],followers:78.9,media:94,brandDeals:17,fanActivity:96,searchTrend:93,trend:'hot',ch:'up',ct:'+5.8'},
-  {id:2,emoji:'⚡',name:'STRAY KIDS',kr:'스트레이 키즈 · JYP Ent.',cat:'kpop',tags:['kpop','4gen','group'],followers:28.7,media:93,brandDeals:9,fanActivity:97,searchTrend:90,trend:'rising',ch:'up',ct:'+6.2'},
-  {id:3,emoji:'🌸',name:'BLACKPINK / ROSÉ',kr:'박채영 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:74.2,media:91,brandDeals:13,fanActivity:95,searchTrend:91,trend:'rising',ch:'up',ct:'+3.4'},
-  {id:4,emoji:'🔥',name:'BTS / JUNGKOOK',kr:'전정국 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:61.3,media:90,brandDeals:11,fanActivity:98,searchTrend:92,trend:'hot',ch:'up',ct:'+4.1'},
-  {id:5,emoji:'💜',name:'BTS / JIMIN',kr:'박지민 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:45.8,media:87,brandDeals:10,fanActivity:97,searchTrend:89,trend:'rising',ch:'up',ct:'+3.7'},
-  {id:6,emoji:'🏆',name:'BTS / RM',kr:'김남준 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:38.4,media:86,brandDeals:9,fanActivity:95,searchTrend:88,trend:'rising',ch:'up',ct:'+2.9'},
-  {id:7,emoji:'🎸',name:'BIGBANG / G-DRAGON',kr:'권지용 · YG Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:23.7,media:82,brandDeals:15,fanActivity:92,searchTrend:91,trend:'hot',ch:'up',ct:'+7.8'},
-  {id:8,emoji:'🦋',name:'BLACKPINK / LISA',kr:'라리사 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:97.1,media:89,brandDeals:16,fanActivity:94,searchTrend:90,trend:'hot',ch:'up',ct:'+4.9'},
-  {id:9,emoji:'✨',name:'AESPA / KARINA',kr:'유지민 · SM Entertainment',cat:'kpop',tags:['kpop','4gen','group'],followers:19.3,media:89,brandDeals:12,fanActivity:91,searchTrend:85,trend:'stable',ch:'down',ct:'-3.1'},
-  {id:10,emoji:'🌟',name:'TWICE / NAYEON',kr:'임나연 · JYP Ent.',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:18.4,media:88,brandDeals:8,fanActivity:90,searchTrend:84,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:11,emoji:'🎵',name:'NEWJEANS / HANNI',kr:'팜하니 · ADOR',cat:'kpop',tags:['kpop','4gen','group'],followers:14.1,media:85,brandDeals:7,fanActivity:93,searchTrend:86,trend:'rising',ch:'up',ct:'+5.1'},
-  {id:12,emoji:'🌙',name:'EXO / KAI',kr:'김종인 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:21.4,media:83,brandDeals:9,fanActivity:88,searchTrend:82,trend:'stable',ch:'flat',ct:'+0.1'},
-  {id:13,emoji:'🎶',name:'IVE / WONYOUNG',kr:'장원영 · Starship Ent.',cat:'kpop',tags:['kpop','4gen','group'],followers:16.9,media:84,brandDeals:11,fanActivity:92,searchTrend:87,trend:'hot',ch:'up',ct:'+5.3'},
-  {id:14,emoji:'🔮',name:'(G)I-DLE / SOYEON',kr:'전소연 · CUBE Ent.',cat:'kpop',tags:['kpop','3gen','group'],followers:11.2,media:79,brandDeals:6,fanActivity:88,searchTrend:80,trend:'rising',ch:'up',ct:'+3.1'},
-  {id:15,emoji:'🌷',name:'GIRLS GENERATION / TAEYEON',kr:'김태연 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:14.7,media:81,brandDeals:8,fanActivity:87,searchTrend:81,trend:'rising',ch:'up',ct:'+1.8'},
-  {id:16,emoji:'🌺',name:'TWICE / SANA',kr:'미나토자키 사나 · JYP',cat:'kpop',tags:['kpop','3gen','group'],followers:14.8,media:80,brandDeals:6,fanActivity:87,searchTrend:79,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:17,emoji:'💫',name:'SEVENTEEN / S.COUPS',kr:'최승철 · PLEDIS Ent.',cat:'kpop',tags:['kpop','3gen','group'],followers:12.3,media:81,brandDeals:5,fanActivity:89,searchTrend:80,trend:'rising',ch:'up',ct:'+2.8'},
-  {id:18,emoji:'💙',name:'SHINee / TAEMIN',kr:'이태민 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:13.2,media:78,brandDeals:7,fanActivity:86,searchTrend:79,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:19,emoji:'🌊',name:'MAMAMOO / HWASA',kr:'안혜진 · RBW Ent.',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:10.7,media:77,brandDeals:7,fanActivity:85,searchTrend:78,trend:'stable',ch:'flat',ct:'+0.6'},
-  {id:20,emoji:'🎪',name:'NCT / TAEYONG',kr:'이태용 · SM Entertainment',cat:'kpop',tags:['kpop','3gen','group'],followers:12.8,media:77,brandDeals:6,fanActivity:85,searchTrend:77,trend:'stable',ch:'flat',ct:'+0.1'},
-  {id:21,emoji:'🌻',name:'RED VELVET / IRENE',kr:'배주현 · SM Entertainment',cat:'kpop',tags:['kpop','3gen','group'],followers:15.6,media:79,brandDeals:7,fanActivity:85,searchTrend:78,trend:'stable',ch:'flat',ct:'+0.4'},
-  {id:22,emoji:'🎀',name:'LE SSERAFIM / KAZUHA',kr:'나카무라 카즈하 · SOURCE',cat:'kpop',tags:['kpop','4gen','group'],followers:9.1,media:75,brandDeals:6,fanActivity:84,searchTrend:76,trend:'stable',ch:'flat',ct:'+0.4'},
-  {id:23,emoji:'🌈',name:'MAMAMOO / SOLAR',kr:'김용선 · RBW Ent.',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:9.8,media:74,brandDeals:5,fanActivity:83,searchTrend:75,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:24,emoji:'🎯',name:'ENHYPEN / JUNGWON',kr:'양정원 · BELIFT LAB',cat:'kpop',tags:['kpop','4gen','group'],followers:10.4,media:76,brandDeals:5,fanActivity:86,searchTrend:77,trend:'rising',ch:'up',ct:'+2.4'},
-  {id:25,emoji:'💞',name:'ITZY / RYUJIN',kr:'신류진 · JYP Ent.',cat:'kpop',tags:['kpop','4gen','group'],followers:11.3,media:76,brandDeals:5,fanActivity:85,searchTrend:76,trend:'rising',ch:'up',ct:'+2.3'},
-  {id:26,emoji:'🌃',name:'BIGBANG / TOP',kr:'최승현 · YG Entertainment',cat:'kpop',tags:['kpop','2gen','group'],followers:17.4,media:75,brandDeals:4,fanActivity:78,searchTrend:74,trend:'falling',ch:'down',ct:'-2.4'},
-  {id:27,emoji:'🦊',name:'TXT / YEONJUN',kr:'최연준 · Big Hit Music',cat:'kpop',tags:['kpop','4gen','group'],followers:8.9,media:74,brandDeals:4,fanActivity:85,searchTrend:75,trend:'rising',ch:'up',ct:'+2.1'},
-  {id:28,emoji:'🎹',name:'SUPER JUNIOR / HEECHUL',kr:'김희철 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group'],followers:11.9,media:72,brandDeals:5,fanActivity:80,searchTrend:72,trend:'stable',ch:'flat',ct:'+0.1'},
-  {id:29,emoji:'🦁',name:'SHINee / KEY',kr:'김기범 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:9.4,media:71,brandDeals:5,fanActivity:81,searchTrend:71,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:30,emoji:'💛',name:'GOT7 / JAY B',kr:'임재범 · CDNZA Ent.',cat:'kpop',tags:['kpop','3gen','group'],followers:10.1,media:73,brandDeals:4,fanActivity:82,searchTrend:72,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:31,emoji:'🎠',name:'KARD / BM',kr:'매튜 · DSP Media',cat:'kpop',tags:['kpop','3gen','group'],followers:4.2,media:62,brandDeals:2,fanActivity:75,searchTrend:63,trend:'stable',ch:'flat',ct:'+0.0'},
-  {id:32,emoji:'🌴',name:'2PM / JUNHO',kr:'이준호 · JYP Ent.',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:8.3,media:72,brandDeals:6,fanActivity:88,searchTrend:80,trend:'hot',ch:'up',ct:'+6.8'},
-  {id:33,emoji:'🎼',name:'WINNER / MINO',kr:'송민호 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:6.9,media:67,brandDeals:3,fanActivity:78,searchTrend:68,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:34,emoji:'🎭',name:'INFINITE / SUNGGYU',kr:'김성규 · Woollim Ent.',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:5.6,media:65,brandDeals:2,fanActivity:77,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.1'},
-  {id:35,emoji:'🎉',name:'EXID / HANI',kr:'안희연 · Independent',cat:'kpop',tags:['kpop','2gen','group'],followers:5.9,media:64,brandDeals:3,fanActivity:76,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:36,emoji:'🎗️',name:'APINK / SON NAEUN',kr:'손나은 · Play M Ent.',cat:'kpop',tags:['kpop','2gen','group'],followers:6.2,media:65,brandDeals:3,fanActivity:76,searchTrend:66,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:37,emoji:'💥',name:'PENTAGON / WOOSEOK',kr:'유우석 · CUBE Ent.',cat:'kpop',tags:['kpop','3gen','group'],followers:4.8,media:63,brandDeals:2,fanActivity:74,searchTrend:63,trend:'stable',ch:'flat',ct:'+0.1'},
-  {id:38,emoji:'🔔',name:'f(x) / LUNA',kr:'박선영 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:3.1,media:59,brandDeals:1,fanActivity:72,searchTrend:59,trend:'stable',ch:'flat',ct:'+0.0'},
-  {id:39,emoji:'🌠',name:'ASTRO / MOONBIN',kr:'문빈 · Fantagio',cat:'kpop',tags:['kpop','3gen','group'],followers:7.8,media:68,brandDeals:3,fanActivity:80,searchTrend:68,trend:'stable',ch:'flat',ct:'+0.1'},
+  {id:0,emoji:'🎤',name:'BTS / V',kr:'김태형 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:52.1,media:99,brandDeals:14,fanActivity:99,searchTrend:95,trend:'hot',ch:'up',ct:'+2.1',history:[85.8,84.8,83.5,85.1,86.3,88.7,92.3,96]},
+  {id:1,emoji:'💎',name:'BLACKPINK / JENNIE',kr:'김제니 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group'],followers:78.9,media:94,brandDeals:17,fanActivity:96,searchTrend:93,trend:'hot',ch:'up',ct:'+5.8',history:[85.6,84.2,85.3,85.8,84.5,85.2,89.6,95]},
+  {id:2,emoji:'⚡',name:'STRAY KIDS',kr:'스트레이 키즈 · JYP Ent.',cat:'kpop',tags:['kpop','4gen','group'],followers:28.7,media:93,brandDeals:9,fanActivity:97,searchTrend:90,trend:'rising',ch:'up',ct:'+6.2',history:[86.3,89.1,88.5,86.5,84.5,86.7,90.7,94]},
+  {id:3,emoji:'🌸',name:'BLACKPINK / ROSÉ',kr:'박채영 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:74.2,media:91,brandDeals:13,fanActivity:95,searchTrend:91,trend:'rising',ch:'up',ct:'+3.4',history:[82.7,83.2,85.3,86.2,88.4,89.1,90.6,93]},
+  {id:4,emoji:'🔥',name:'BTS / JUNGKOOK',kr:'전정국 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:61.3,media:90,brandDeals:11,fanActivity:98,searchTrend:92,trend:'hot',ch:'up',ct:'+4.1',history:[86.3,84.4,83.4,84.4,83.9,83.4,87.5,92]},
+  {id:5,emoji:'💜',name:'BTS / JIMIN',kr:'박지민 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:45.8,media:87,brandDeals:10,fanActivity:97,searchTrend:89,trend:'rising',ch:'up',ct:'+3.7',history:[80.8,82.3,80.7,80.3,83.2,84.2,87.3,90]},
+  {id:6,emoji:'🏆',name:'BTS / RM',kr:'김남준 · Big Hit Music',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:38.4,media:86,brandDeals:9,fanActivity:95,searchTrend:88,trend:'rising',ch:'up',ct:'+2.9',history:[81.3,80.5,79.5,78.2,80.9,83.2,86.3,89]},
+  {id:7,emoji:'🎸',name:'BIGBANG / G-DRAGON',kr:'권지용 · YG Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:23.7,media:82,brandDeals:15,fanActivity:92,searchTrend:91,trend:'hot',ch:'up',ct:'+7.8',history:[80.2,79.1,79.7,78.6,79.3,81.7,84.6,88]},
+  {id:8,emoji:'🦋',name:'BLACKPINK / LISA',kr:'라리사 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:97.1,media:89,brandDeals:16,fanActivity:94,searchTrend:90,trend:'hot',ch:'up',ct:'+4.9',history:[84.2,82.3,83.3,85.2,85.0,82.8,87.4,91]},
+  {id:9,emoji:'✨',name:'AESPA / KARINA',kr:'유지민 · SM Entertainment',cat:'kpop',tags:['kpop','4gen','group'],followers:19.3,media:89,brandDeals:12,fanActivity:91,searchTrend:85,trend:'stable',ch:'down',ct:'-3.1',history:[74.4,75.9,77.1,77.6,76.6,77.6,81.7,86]},
+  {id:10,emoji:'🌟',name:'TWICE / NAYEON',kr:'임나연 · JYP Ent.',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:18.4,media:88,brandDeals:8,fanActivity:90,searchTrend:84,trend:'stable',ch:'flat',ct:'+0.3',history:[74.7,75.0,73.5,76.0,78.3,77.4,81.3,85]},
+  {id:11,emoji:'🎵',name:'NEWJEANS / HANNI',kr:'팜하니 · ADOR',cat:'kpop',tags:['kpop','4gen','group'],followers:14.1,media:85,brandDeals:7,fanActivity:93,searchTrend:86,trend:'rising',ch:'up',ct:'+5.1',history:[77.5,77.9,75.4,74.7,72.3,74.9,79.3,83]},
+  {id:12,emoji:'🌙',name:'EXO / KAI',kr:'김종인 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:21.4,media:83,brandDeals:9,fanActivity:88,searchTrend:82,trend:'stable',ch:'flat',ct:'+0.1',history:[75.4,73.4,73.6,71.5,73.2,74.9,78.4,82]},
+  {id:13,emoji:'🎶',name:'IVE / WONYOUNG',kr:'장원영 · Starship Ent.',cat:'kpop',tags:['kpop','4gen','group'],followers:16.9,media:84,brandDeals:11,fanActivity:92,searchTrend:87,trend:'hot',ch:'up',ct:'+5.3',history:[72.6,71.3,71.8,73.3,71.9,71.1,76.7,82]},
+  {id:14,emoji:'🔮',name:'(G)I-DLE / SOYEON',kr:'전소연 · CUBE Ent.',cat:'kpop',tags:['kpop','3gen','group'],followers:11.2,media:79,brandDeals:6,fanActivity:88,searchTrend:80,trend:'rising',ch:'up',ct:'+3.1',history:[72.0,71.4,72.1,70.9,69.6,67.5,72.5,78]},
+  {id:15,emoji:'🌷',name:'GIRLS GENERATION / TAEYEON',kr:'김태연 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:14.7,media:81,brandDeals:8,fanActivity:87,searchTrend:81,trend:'rising',ch:'up',ct:'+1.8',history:[73.4,74.6,73.3,71.5,74.1,74.7,77.1,79]},
+  {id:16,emoji:'🌺',name:'TWICE / SANA',kr:'미나토자키 사나 · JYP',cat:'kpop',tags:['kpop','3gen','group'],followers:14.8,media:80,brandDeals:6,fanActivity:87,searchTrend:79,trend:'stable',ch:'flat',ct:'+0.2',history:[73.3,73.1,73.2,74.7,75.9,78.8,78.3,78]},
+  {id:17,emoji:'💫',name:'SEVENTEEN / S.COUPS',kr:'최승철 · PLEDIS Ent.',cat:'kpop',tags:['kpop','3gen','group'],followers:12.3,media:81,brandDeals:5,fanActivity:89,searchTrend:80,trend:'rising',ch:'up',ct:'+2.8',history:[72.1,72.1,71.9,70.9,69.8,72.4,76.1,79]},
+  {id:18,emoji:'💙',name:'SHINee / TAEMIN',kr:'이태민 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:13.2,media:78,brandDeals:7,fanActivity:86,searchTrend:79,trend:'stable',ch:'flat',ct:'+0.3',history:[69.1,71.9,74.5,76.7,75.1,75.3,76.1,77]},
+  {id:19,emoji:'🌊',name:'MAMAMOO / HWASA',kr:'안혜진 · RBW Ent.',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:10.7,media:77,brandDeals:7,fanActivity:85,searchTrend:78,trend:'stable',ch:'flat',ct:'+0.6',history:[65.0,66.8,66.8,66.6,69.4,72.4,74.4,76]},
+  {id:20,emoji:'🎪',name:'NCT / TAEYONG',kr:'이태용 · SM Entertainment',cat:'kpop',tags:['kpop','3gen','group'],followers:12.8,media:77,brandDeals:6,fanActivity:85,searchTrend:77,trend:'stable',ch:'flat',ct:'+0.1',history:[66.9,67.4,69.0,66.8,67.5,67.8,71.6,76]},
+  {id:21,emoji:'🌻',name:'RED VELVET / IRENE',kr:'배주현 · SM Entertainment',cat:'kpop',tags:['kpop','3gen','group'],followers:15.6,media:79,brandDeals:7,fanActivity:85,searchTrend:78,trend:'stable',ch:'flat',ct:'+0.4',history:[73.7,74.9,73.7,71.9,74.3,73.2,75.7,78]},
+  {id:22,emoji:'🎀',name:'LE SSERAFIM / KAZUHA',kr:'나카무라 카즈하 · SOURCE',cat:'kpop',tags:['kpop','4gen','group'],followers:9.1,media:75,brandDeals:6,fanActivity:84,searchTrend:76,trend:'stable',ch:'flat',ct:'+0.4',history:[68.5,67.1,68.5,67.3,67.0,68.2,70.4,73]},
+  {id:23,emoji:'🌈',name:'MAMAMOO / SOLAR',kr:'김용선 · RBW Ent.',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:9.8,media:74,brandDeals:5,fanActivity:83,searchTrend:75,trend:'stable',ch:'flat',ct:'+0.3',history:[68.2,71.2,69.1,67.8,66.8,69.4,71.1,72]},
+  {id:24,emoji:'🎯',name:'ENHYPEN / JUNGWON',kr:'양정원 · BELIFT LAB',cat:'kpop',tags:['kpop','4gen','group'],followers:10.4,media:76,brandDeals:5,fanActivity:86,searchTrend:77,trend:'rising',ch:'up',ct:'+2.4',history:[66.4,67.3,70.2,71.3,68.8,70.8,72.6,74]},
+  {id:25,emoji:'💞',name:'ITZY / RYUJIN',kr:'신류진 · JYP Ent.',cat:'kpop',tags:['kpop','4gen','group'],followers:11.3,media:76,brandDeals:5,fanActivity:85,searchTrend:76,trend:'rising',ch:'up',ct:'+2.3',history:[67.4,67.9,66.9,67.7,69.1,67.7,70.6,74]},
+  {id:26,emoji:'🌃',name:'BIGBANG / TOP',kr:'최승현 · YG Entertainment',cat:'kpop',tags:['kpop','2gen','group'],followers:17.4,media:75,brandDeals:4,fanActivity:78,searchTrend:74,trend:'falling',ch:'down',ct:'-2.4',history:[61.9,61.7,60.7,58.2,59.9,60.9,67.2,73]},
+  {id:27,emoji:'🦊',name:'TXT / YEONJUN',kr:'최연준 · Big Hit Music',cat:'kpop',tags:['kpop','4gen','group'],followers:8.9,media:74,brandDeals:4,fanActivity:85,searchTrend:75,trend:'rising',ch:'up',ct:'+2.1',history:[65.9,68.3,70.8,71.3,73.4,74.1,72.7,72]},
+  {id:28,emoji:'🎹',name:'SUPER JUNIOR / HEECHUL',kr:'김희철 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group'],followers:11.9,media:72,brandDeals:5,fanActivity:80,searchTrend:72,trend:'stable',ch:'flat',ct:'+0.1',history:[64.5,66.9,65.6,64.5,62.6,64.4,67.6,71]},
+  {id:29,emoji:'🦁',name:'SHINee / KEY',kr:'김기범 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:9.4,media:71,brandDeals:5,fanActivity:81,searchTrend:71,trend:'stable',ch:'flat',ct:'+0.3',history:[62.7,65.6,67.6,69.9,67.5,69.1,70.0,70]},
+  {id:30,emoji:'💛',name:'GOT7 / JAY B',kr:'임재범 · CDNZA Ent.',cat:'kpop',tags:['kpop','3gen','group'],followers:10.1,media:73,brandDeals:4,fanActivity:82,searchTrend:72,trend:'stable',ch:'flat',ct:'+0.2',history:[61.1,62.9,61.0,63.3,65.5,64.2,67.6,71]},
+  {id:31,emoji:'🎠',name:'KARD / BM',kr:'매튜 · DSP Media',cat:'kpop',tags:['kpop','3gen','group'],followers:4.2,media:62,brandDeals:2,fanActivity:75,searchTrend:63,trend:'stable',ch:'flat',ct:'+0.0',history:[52.3,50.9,50.2,52.5,55.3,54.3,57.0,60]},
+  {id:32,emoji:'🌴',name:'2PM / JUNHO',kr:'이준호 · JYP Ent.',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:8.3,media:72,brandDeals:6,fanActivity:88,searchTrend:80,trend:'hot',ch:'up',ct:'+6.8',history:[61.5,64.3,62.8,65.6,64.6,62.7,68.1,73]},
+  {id:33,emoji:'🎼',name:'WINNER / MINO',kr:'송민호 · YG Entertainment',cat:'kpop',tags:['kpop','3gen','group','solo'],followers:6.9,media:67,brandDeals:3,fanActivity:78,searchTrend:68,trend:'stable',ch:'flat',ct:'+0.2',history:[57.6,58.3,57.2,58.6,56.1,58.7,62.1,65]},
+  {id:34,emoji:'🎭',name:'INFINITE / SUNGGYU',kr:'김성규 · Woollim Ent.',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:5.6,media:65,brandDeals:2,fanActivity:77,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.1',history:[54.7,55.9,55.2,54.4,56.6,58.1,60.4,63]},
+  {id:35,emoji:'🎉',name:'EXID / HANI',kr:'안희연 · Independent',cat:'kpop',tags:['kpop','2gen','group'],followers:5.9,media:64,brandDeals:3,fanActivity:76,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.2',history:[54.4,54.2,56.9,58.1,60.6,61.5,61.8,62]},
+  {id:36,emoji:'🎗️',name:'APINK / SON NAEUN',kr:'손나은 · Play M Ent.',cat:'kpop',tags:['kpop','2gen','group'],followers:6.2,media:65,brandDeals:3,fanActivity:76,searchTrend:66,trend:'stable',ch:'flat',ct:'+0.3',history:[57.1,58.2,58.3,58.2,56.9,57.0,60.3,63]},
+  {id:37,emoji:'💥',name:'PENTAGON / WOOSEOK',kr:'유우석 · CUBE Ent.',cat:'kpop',tags:['kpop','3gen','group'],followers:4.8,media:63,brandDeals:2,fanActivity:74,searchTrend:63,trend:'stable',ch:'flat',ct:'+0.1',history:[54.9,54.2,56.2,57.8,59.0,57.7,58.9,61]},
+  {id:38,emoji:'🔔',name:'f(x) / LUNA',kr:'박선영 · SM Entertainment',cat:'kpop',tags:['kpop','2gen','group','solo'],followers:3.1,media:59,brandDeals:1,fanActivity:72,searchTrend:59,trend:'stable',ch:'flat',ct:'+0.0',history:[45.8,45.6,46.6,45.2,46.5,46.7,52.0,57]},
+  {id:39,emoji:'🌠',name:'ASTRO / MOONBIN',kr:'문빈 · Fantagio',cat:'kpop',tags:['kpop','3gen','group'],followers:7.8,media:68,brandDeals:3,fanActivity:80,searchTrend:68,trend:'stable',ch:'flat',ct:'+0.1',history:[55.5,55.3,53.8,56.6,56.9,54.7,60.7,66]},
 
   // ACTORS (30)
-  {id:40,emoji:'🎬',name:'IU',kr:'이지은 · KAKAO Entertainment',cat:'actor',tags:['actor','kpop','drama','solo'],followers:31.4,media:97,brandDeals:11,fanActivity:98,searchTrend:96,trend:'rising',ch:'up',ct:'+4.3'},
-  {id:41,emoji:'🎭',name:'KIM SOO-HYUN',kr:'김수현 · GOLDMEDALIST',cat:'actor',tags:['actor','drama'],followers:14.8,media:92,brandDeals:10,fanActivity:93,searchTrend:89,trend:'stable',ch:'flat',ct:'-0.4'},
-  {id:42,emoji:'🌟',name:'SONG JOONG-KI',kr:'송중기 · History D&C',cat:'actor',tags:['actor','drama'],followers:12.4,media:96,brandDeals:8,fanActivity:94,searchTrend:90,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:43,emoji:'🦅',name:'LEE JUNG-JAE',kr:'이정재 · Artist Company',cat:'actor',tags:['actor','drama','film'],followers:9.4,media:91,brandDeals:6,fanActivity:88,searchTrend:87,trend:'stable',ch:'flat',ct:'+0.5'},
-  {id:44,emoji:'🎯',name:'LEE JUNHO',kr:'이준호 · JYP Actor',cat:'actor',tags:['actor','drama'],followers:14.1,media:86,brandDeals:7,fanActivity:92,searchTrend:88,trend:'hot',ch:'up',ct:'+7.1'},
-  {id:45,emoji:'🌊',name:'GONG YOO',kr:'공유 · Management SOOP',cat:'actor',tags:['actor','drama','film'],followers:11.3,media:89,brandDeals:7,fanActivity:90,searchTrend:86,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:46,emoji:'👑',name:'PARK SEO-JUN',kr:'박서준 · Awesome ENT',cat:'actor',tags:['actor','drama','film'],followers:19.8,media:87,brandDeals:9,fanActivity:91,searchTrend:87,trend:'hot',ch:'up',ct:'+5.1'},
-  {id:47,emoji:'🔥',name:'HYUN BIN',kr:'김태평 · VAST Entertainment',cat:'actor',tags:['actor','drama','film'],followers:16.7,media:88,brandDeals:9,fanActivity:89,searchTrend:85,trend:'stable',ch:'flat',ct:'+0.6'},
-  {id:48,emoji:'🎞️',name:'HAN SO-HEE',kr:'한소희 · 9ATO Entertainment',cat:'actor',tags:['actor','drama','film'],followers:22.1,media:88,brandDeals:7,fanActivity:89,searchTrend:85,trend:'rising',ch:'up',ct:'+2.9'},
-  {id:49,emoji:'🎪',name:'LEE MIN-HO',kr:'이민호 · MYM Ent.',cat:'actor',tags:['actor','drama'],followers:29.4,media:85,brandDeals:11,fanActivity:91,searchTrend:84,trend:'stable',ch:'flat',ct:'+0.7'},
-  {id:50,emoji:'🌙',name:'SONG HYE-KYO',kr:'송혜교 · UAA',cat:'actor',tags:['actor','drama'],followers:18.9,media:86,brandDeals:8,fanActivity:88,searchTrend:83,trend:'stable',ch:'flat',ct:'-0.1'},
-  {id:51,emoji:'🌸',name:'KIM JI-WON',kr:'김지원 · MSTeam Ent.',cat:'actor',tags:['actor','drama'],followers:13.6,media:85,brandDeals:8,fanActivity:90,searchTrend:84,trend:'rising',ch:'up',ct:'+3.8'},
-  {id:52,emoji:'🌴',name:'JUNG HO-YEON',kr:'정호연 · IMG Models',cat:'actor',tags:['actor','drama'],followers:26.4,media:83,brandDeals:9,fanActivity:88,searchTrend:82,trend:'stable',ch:'flat',ct:'+0.6'},
-  {id:53,emoji:'💫',name:'SON YE-JIN',kr:'손예진 · MS Team Ent.',cat:'actor',tags:['actor','drama','film'],followers:12.8,media:84,brandDeals:7,fanActivity:87,searchTrend:81,trend:'stable',ch:'flat',ct:'+0.4'},
-  {id:54,emoji:'🎠',name:'PARK BO-GUM',kr:'박보검 · Artist Company',cat:'actor',tags:['actor','drama'],followers:12.4,media:82,brandDeals:7,fanActivity:87,searchTrend:81,trend:'stable',ch:'flat',ct:'+0.4'},
-  {id:55,emoji:'🌻',name:'JEON JI-HYUN',kr:'전지현 · VAST Entertainment',cat:'actor',tags:['actor','drama','film'],followers:7.1,media:84,brandDeals:7,fanActivity:85,searchTrend:80,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:56,emoji:'🦋',name:'PARK MIN-YOUNG',kr:'박민영 · Artist Company',cat:'actor',tags:['actor','drama'],followers:11.2,media:80,brandDeals:6,fanActivity:84,searchTrend:79,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:57,emoji:'🌺',name:'KIM TAE-RI',kr:'김태리 · Management SOOP',cat:'actor',tags:['actor','drama','film'],followers:8.7,media:83,brandDeals:5,fanActivity:86,searchTrend:80,trend:'rising',ch:'up',ct:'+2.1'},
-  {id:58,emoji:'🏆',name:'MA DONG-SEOK',kr:'마동석 · Namoo Actors',cat:'actor',tags:['actor','film'],followers:5.8,media:80,brandDeals:4,fanActivity:83,searchTrend:78,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:59,emoji:'🔮',name:'CHOI WOO-SIK',kr:'최우식 · Artist Company',cat:'actor',tags:['actor','drama','film'],followers:9.1,media:81,brandDeals:5,fanActivity:85,searchTrend:79,trend:'rising',ch:'up',ct:'+2.7'},
-  {id:60,emoji:'🦁',name:'KIM WOOBIN',kr:'김우빈 · AM Entertainment',cat:'actor',tags:['actor','drama','film'],followers:10.2,media:79,brandDeals:6,fanActivity:84,searchTrend:78,trend:'rising',ch:'up',ct:'+3.1'},
-  {id:61,emoji:'💛',name:'LEE DO-HYUN',kr:'이도현 · 935 Entertainment',cat:'actor',tags:['actor','drama'],followers:10.8,media:78,brandDeals:5,fanActivity:83,searchTrend:77,trend:'rising',ch:'up',ct:'+3.9'},
-  {id:62,emoji:'🌈',name:'GO KYUNG-PYO',kr:'고경표 · Sublime Artist Agency',cat:'actor',tags:['actor','drama'],followers:6.1,media:74,brandDeals:4,fanActivity:81,searchTrend:73,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:63,emoji:'🌠',name:'AHN HYO-SEOP',kr:'안효섭 · ASTH Company',cat:'actor',tags:['actor','drama'],followers:8.3,media:75,brandDeals:4,fanActivity:82,searchTrend:74,trend:'rising',ch:'up',ct:'+2.3'},
-  {id:64,emoji:'🎭',name:'YOO AH-IN',kr:'엄홍식 · UAA',cat:'actor',tags:['actor','drama','film'],followers:7.8,media:78,brandDeals:3,fanActivity:78,searchTrend:73,trend:'falling',ch:'down',ct:'-4.2'},
-  {id:65,emoji:'💙',name:'RYANG HA-ON',kr:'류하온 · Awesome ENT',cat:'actor',tags:['actor','drama'],followers:5.4,media:72,brandDeals:3,fanActivity:79,searchTrend:71,trend:'rising',ch:'up',ct:'+3.4'},
-  {id:66,emoji:'🎵',name:'SHIN HYE-SUN',kr:'신혜선 · Namoo Actors',cat:'actor',tags:['actor','drama'],followers:7.4,media:73,brandDeals:4,fanActivity:80,searchTrend:72,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:67,emoji:'🎗️',name:'KIM DA-MI',kr:'김다미 · BH Entertainment',cat:'actor',tags:['actor','drama','film'],followers:7.9,media:76,brandDeals:4,fanActivity:81,searchTrend:74,trend:'stable',ch:'flat',ct:'+0.4'},
-  {id:68,emoji:'🎼',name:'NAMGOONG MIN',kr:'강민준 · 935 Entertainment',cat:'actor',tags:['actor','drama'],followers:6.3,media:77,brandDeals:4,fanActivity:82,searchTrend:74,trend:'stable',ch:'flat',ct:'+0.1'},
-  {id:69,emoji:'🔔',name:'JUN JI-HYUN',kr:'전지현 · HB Entertainment',cat:'actor',tags:['actor','drama','film'],followers:6.7,media:75,brandDeals:5,fanActivity:80,searchTrend:73,trend:'stable',ch:'flat',ct:'+0.2'},
+  {id:40,emoji:'🎬',name:'IU',kr:'이지은 · KAKAO Entertainment',cat:'actor',tags:['actor','kpop','drama','solo'],followers:31.4,media:97,brandDeals:11,fanActivity:98,searchTrend:96,trend:'rising',ch:'up',ct:'+4.3',history:[91.9,92.7,95.4,97.8,98.7,99.9,98.8,97]},
+  {id:41,emoji:'🎭',name:'KIM SOO-HYUN',kr:'김수현 · GOLDMEDALIST',cat:'actor',tags:['actor','drama'],followers:14.8,media:92,brandDeals:10,fanActivity:93,searchTrend:89,trend:'stable',ch:'flat',ct:'-0.4',history:[84.6,83.5,82.4,83.4,85.1,85.5,89.0,93]},
+  {id:42,emoji:'🌟',name:'SONG JOONG-KI',kr:'송중기 · History D&C',cat:'actor',tags:['actor','drama'],followers:12.4,media:96,brandDeals:8,fanActivity:94,searchTrend:90,trend:'stable',ch:'flat',ct:'+0.2',history:[87.6,88.1,86.4,85.2,86.5,87.9,90.9,94]},
+  {id:43,emoji:'🦅',name:'LEE JUNG-JAE',kr:'이정재 · Artist Company',cat:'actor',tags:['actor','drama','film'],followers:9.4,media:91,brandDeals:6,fanActivity:88,searchTrend:87,trend:'stable',ch:'flat',ct:'+0.5',history:[82.6,85.1,85.8,87.1,89.3,91.0,89.0,88]},
+  {id:44,emoji:'🎯',name:'LEE JUNHO',kr:'이준호 · JYP Actor',cat:'actor',tags:['actor','drama'],followers:14.1,media:86,brandDeals:7,fanActivity:92,searchTrend:88,trend:'hot',ch:'up',ct:'+7.1',history:[86.6,86.4,88.0,88.5,89.3,88.0,90.4,93]},
+  {id:45,emoji:'🌊',name:'GONG YOO',kr:'공유 · Management SOOP',cat:'actor',tags:['actor','drama','film'],followers:11.3,media:89,brandDeals:7,fanActivity:90,searchTrend:86,trend:'stable',ch:'flat',ct:'+0.3',history:[78.6,77.0,77.1,75.3,76.2,73.8,80.5,87]},
+  {id:46,emoji:'👑',name:'PARK SEO-JUN',kr:'박서준 · Awesome ENT',cat:'actor',tags:['actor','drama','film'],followers:19.8,media:87,brandDeals:9,fanActivity:91,searchTrend:87,trend:'hot',ch:'up',ct:'+5.1',history:[81.2,79.0,78.6,77.3,76.6,78.3,82.4,86]},
+  {id:47,emoji:'🔥',name:'HYUN BIN',kr:'김태평 · VAST Entertainment',cat:'actor',tags:['actor','drama','film'],followers:16.7,media:88,brandDeals:9,fanActivity:89,searchTrend:85,trend:'stable',ch:'flat',ct:'+0.6',history:[79.1,79.6,82.6,82.0,83.1,84.9,85.7,86]},
+  {id:48,emoji:'🎞️',name:'HAN SO-HEE',kr:'한소희 · 9ATO Entertainment',cat:'actor',tags:['actor','drama','film'],followers:22.1,media:88,brandDeals:7,fanActivity:89,searchTrend:85,trend:'rising',ch:'up',ct:'+2.9',history:[80.2,78.4,79.6,80.2,78.9,80.2,82.8,86]},
+  {id:49,emoji:'🎪',name:'LEE MIN-HO',kr:'이민호 · MYM Ent.',cat:'actor',tags:['actor','drama'],followers:29.4,media:85,brandDeals:11,fanActivity:91,searchTrend:84,trend:'stable',ch:'flat',ct:'+0.7',history:[83.3,86.1,84.2,81.8,81.0,82.2,84.0,86]},
+  {id:50,emoji:'🌙',name:'SONG HYE-KYO',kr:'송혜교 · UAA',cat:'actor',tags:['actor','drama'],followers:18.9,media:86,brandDeals:8,fanActivity:88,searchTrend:83,trend:'stable',ch:'flat',ct:'-0.1',history:[77.8,75.9,77.6,79.8,80.6,78.8,82.2,85]},
+  {id:51,emoji:'🌸',name:'KIM JI-WON',kr:'김지원 · MSTeam Ent.',cat:'actor',tags:['actor','drama'],followers:13.6,media:85,brandDeals:8,fanActivity:90,searchTrend:84,trend:'rising',ch:'up',ct:'+3.8',history:[78.1,77.5,79.7,81.7,79.8,82.6,83.6,84]},
+  {id:52,emoji:'🌴',name:'JUNG HO-YEON',kr:'정호연 · IMG Models',cat:'actor',tags:['actor','drama'],followers:26.4,media:83,brandDeals:9,fanActivity:88,searchTrend:82,trend:'stable',ch:'flat',ct:'+0.6',history:[78.4,77.4,79.3,79.8,80.0,79.9,81.7,84]},
+  {id:53,emoji:'💫',name:'SON YE-JIN',kr:'손예진 · MS Team Ent.',cat:'actor',tags:['actor','drama','film'],followers:12.8,media:84,brandDeals:7,fanActivity:87,searchTrend:81,trend:'stable',ch:'flat',ct:'+0.4',history:[79.8,78.6,78.7,79.6,79.2,76.9,79.1,82]},
+  {id:54,emoji:'🎠',name:'PARK BO-GUM',kr:'박보검 · Artist Company',cat:'actor',tags:['actor','drama'],followers:12.4,media:82,brandDeals:7,fanActivity:87,searchTrend:81,trend:'stable',ch:'flat',ct:'+0.4',history:[77.3,78.7,77.7,75.3,78.0,76.0,78.5,81]},
+  {id:55,emoji:'🌻',name:'JEON JI-HYUN',kr:'전지현 · VAST Entertainment',cat:'actor',tags:['actor','drama','film'],followers:7.1,media:84,brandDeals:7,fanActivity:85,searchTrend:80,trend:'stable',ch:'flat',ct:'+0.3',history:[74.3,76.2,74.2,72.9,74.2,73.4,77.7,82]},
+  {id:56,emoji:'🦋',name:'PARK MIN-YOUNG',kr:'박민영 · Artist Company',cat:'actor',tags:['actor','drama'],followers:11.2,media:80,brandDeals:6,fanActivity:84,searchTrend:79,trend:'stable',ch:'flat',ct:'+0.2',history:[69.8,71.2,70.2,69.1,67.3,65.9,72.5,79]},
+  {id:57,emoji:'🌺',name:'KIM TAE-RI',kr:'김태리 · Management SOOP',cat:'actor',tags:['actor','drama','film'],followers:8.7,media:83,brandDeals:5,fanActivity:86,searchTrend:80,trend:'rising',ch:'up',ct:'+2.1',history:[75.9,77.4,80.3,80.7,79.8,77.9,79.2,81]},
+  {id:58,emoji:'🏆',name:'MA DONG-SEOK',kr:'마동석 · Namoo Actors',cat:'actor',tags:['actor','film'],followers:5.8,media:80,brandDeals:4,fanActivity:83,searchTrend:78,trend:'stable',ch:'flat',ct:'+0.3',history:[69.8,72.7,73.2,74.5,72.7,75.0,76.9,78]},
+  {id:59,emoji:'🔮',name:'CHOI WOO-SIK',kr:'최우식 · Artist Company',cat:'actor',tags:['actor','drama','film'],followers:9.1,media:81,brandDeals:5,fanActivity:85,searchTrend:79,trend:'rising',ch:'up',ct:'+2.7',history:[70.9,68.7,71.4,71.5,73.5,73.2,76.2,79]},
+  {id:60,emoji:'🦁',name:'KIM WOOBIN',kr:'김우빈 · AM Entertainment',cat:'actor',tags:['actor','drama','film'],followers:10.2,media:79,brandDeals:6,fanActivity:84,searchTrend:78,trend:'rising',ch:'up',ct:'+3.1',history:[69.8,72.8,71.0,72.7,73.5,75.3,76.7,78]},
+  {id:61,emoji:'💛',name:'LEE DO-HYUN',kr:'이도현 · 935 Entertainment',cat:'actor',tags:['actor','drama'],followers:10.8,media:78,brandDeals:5,fanActivity:83,searchTrend:77,trend:'rising',ch:'up',ct:'+3.9',history:[70.8,70.0,70.9,71.8,73.4,76.1,76.3,77]},
+  {id:62,emoji:'🌈',name:'GO KYUNG-PYO',kr:'고경표 · Sublime Artist Agency',cat:'actor',tags:['actor','drama'],followers:6.1,media:74,brandDeals:4,fanActivity:81,searchTrend:73,trend:'stable',ch:'flat',ct:'+0.2',history:[64.9,62.4,62.4,63.2,62.3,61.1,66.8,72]},
+  {id:63,emoji:'🌠',name:'AHN HYO-SEOP',kr:'안효섭 · ASTH Company',cat:'actor',tags:['actor','drama'],followers:8.3,media:75,brandDeals:4,fanActivity:82,searchTrend:74,trend:'rising',ch:'up',ct:'+2.3',history:[65.3,66.2,67.3,69.9,69.7,70.2,72.0,73]},
+  {id:64,emoji:'🎭',name:'YOO AH-IN',kr:'엄홍식 · UAA',cat:'actor',tags:['actor','drama','film'],followers:7.8,media:78,brandDeals:3,fanActivity:78,searchTrend:73,trend:'falling',ch:'down',ct:'-4.2',history:[69.2,70.8,71.4,70.5,68.7,70.0,72.9,75]},
+  {id:65,emoji:'💙',name:'RYANG HA-ON',kr:'류하온 · Awesome ENT',cat:'actor',tags:['actor','drama'],followers:5.4,media:72,brandDeals:3,fanActivity:79,searchTrend:71,trend:'rising',ch:'up',ct:'+3.4',history:[63.2,63.1,62.4,61.3,59.3,62.1,66.1,70]},
+  {id:66,emoji:'🎵',name:'SHIN HYE-SUN',kr:'신혜선 · Namoo Actors',cat:'actor',tags:['actor','drama'],followers:7.4,media:73,brandDeals:4,fanActivity:80,searchTrend:72,trend:'stable',ch:'flat',ct:'+0.2',history:[61.9,59.6,61.3,61.4,62.5,65.0,68.1,71]},
+  {id:67,emoji:'🎗️',name:'KIM DA-MI',kr:'김다미 · BH Entertainment',cat:'actor',tags:['actor','drama','film'],followers:7.9,media:76,brandDeals:4,fanActivity:81,searchTrend:74,trend:'stable',ch:'flat',ct:'+0.4',history:[68.9,68.2,69.4,71.6,70.9,72.2,73.5,74]},
+  {id:68,emoji:'🎼',name:'NAMGOONG MIN',kr:'강민준 · 935 Entertainment',cat:'actor',tags:['actor','drama'],followers:6.3,media:77,brandDeals:4,fanActivity:82,searchTrend:74,trend:'stable',ch:'flat',ct:'+0.1',history:[67.5,66.8,69.6,69.3,69.6,72.5,73.8,75]},
+  {id:69,emoji:'🔔',name:'JUN JI-HYUN',kr:'전지현 · HB Entertainment',cat:'actor',tags:['actor','drama','film'],followers:6.7,media:75,brandDeals:5,fanActivity:80,searchTrend:73,trend:'stable',ch:'flat',ct:'+0.2',history:[68.5,69.4,71.1,69.7,70.2,72.8,73.1,73]},
 
   // CREATORS (20)
-  {id:70,emoji:'📱',name:'LEESERAPHINA',kr:'이세라피나 · Independent',cat:'creator',tags:['creator','youtube','instagram'],followers:8.3,media:71,brandDeals:5,fanActivity:82,searchTrend:68,trend:'rising',ch:'up',ct:'+4.1'},
-  {id:71,emoji:'🍜',name:'HAMZY',kr:'함지(함먹) · Independent',cat:'creator',tags:['creator','youtube'],followers:9.4,media:72,brandDeals:4,fanActivity:78,searchTrend:69,trend:'stable',ch:'flat',ct:'+0.8'},
-  {id:72,emoji:'💄',name:'PONY',kr:'박혜민 · Independent',cat:'creator',tags:['creator','youtube','instagram'],followers:8.8,media:70,brandDeals:6,fanActivity:79,searchTrend:68,trend:'stable',ch:'flat',ct:'+0.4'},
-  {id:73,emoji:'🏋️',name:'ROZY (Virtual)',kr:'로지 · Sidus Studio X',cat:'creator',tags:['creator','instagram'],followers:12.4,media:74,brandDeals:9,fanActivity:72,searchTrend:70,trend:'rising',ch:'up',ct:'+3.3'},
-  {id:74,emoji:'🎮',name:'WOOWAKGOOD',kr:'우왁굳 · Independent',cat:'creator',tags:['creator','youtube','tiktok'],followers:6.1,media:68,brandDeals:3,fanActivity:88,searchTrend:72,trend:'hot',ch:'up',ct:'+7.2'},
-  {id:75,emoji:'🌸',name:'JESSICA JUNG',kr:'정수연 · Independent',cat:'creator',tags:['creator','youtube','instagram','kpop'],followers:14.1,media:69,brandDeals:5,fanActivity:74,searchTrend:67,trend:'stable',ch:'flat',ct:'+0.6'},
-  {id:76,emoji:'🎤',name:'DOREMI',kr:'도레미 · Independent',cat:'creator',tags:['creator','youtube','tiktok'],followers:5.7,media:65,brandDeals:3,fanActivity:78,searchTrend:65,trend:'rising',ch:'up',ct:'+2.8'},
-  {id:77,emoji:'🍱',name:'BOKI',kr:'복이 · Independent',cat:'creator',tags:['creator','youtube'],followers:7.9,media:67,brandDeals:4,fanActivity:76,searchTrend:66,trend:'stable',ch:'flat',ct:'+0.5'},
-  {id:78,emoji:'🌿',name:'SOOBEANIE',kr:'수비니 · Independent',cat:'creator',tags:['creator','youtube','instagram'],followers:4.8,media:62,brandDeals:3,fanActivity:74,searchTrend:62,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:79,emoji:'🧪',name:'KOREAN ENGLISHMAN',kr:'조쉬 · Independent',cat:'creator',tags:['creator','youtube'],followers:5.3,media:66,brandDeals:3,fanActivity:75,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.4'},
-  {id:80,emoji:'🎭',name:'HYPEBOY (CREATOR)',kr:'하이프보이 · Independent',cat:'creator',tags:['creator','tiktok','youtube'],followers:6.8,media:65,brandDeals:3,fanActivity:76,searchTrend:65,trend:'rising',ch:'up',ct:'+3.6'},
-  {id:81,emoji:'🎯',name:'KWON EUNBI',kr:'권은비 · WH Creative',cat:'creator',tags:['creator','youtube','instagram','kpop'],followers:7.3,media:66,brandDeals:4,fanActivity:76,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.5'},
-  {id:82,emoji:'🏠',name:'HAM EUNJUNG',kr:'함은정 · Independent',cat:'creator',tags:['creator','youtube','instagram'],followers:4.1,media:63,brandDeals:3,fanActivity:73,searchTrend:62,trend:'stable',ch:'flat',ct:'+0.1'},
-  {id:83,emoji:'🎨',name:'JAZZYFACT',kr:'재지팩트 · Independent',cat:'creator',tags:['creator','youtube'],followers:3.9,media:61,brandDeals:2,fanActivity:71,searchTrend:60,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:84,emoji:'📸',name:'KIMSUNGSIK',kr:'김성식 · Independent',cat:'creator',tags:['creator','instagram','youtube'],followers:3.4,media:59,brandDeals:2,fanActivity:70,searchTrend:58,trend:'stable',ch:'flat',ct:'+0.1'},
-  {id:85,emoji:'🐾',name:'JOICELINE',kr:'조이스라인 · Independent',cat:'creator',tags:['creator','tiktok','instagram'],followers:5.1,media:64,brandDeals:3,fanActivity:74,searchTrend:63,trend:'rising',ch:'up',ct:'+2.2'},
-  {id:86,emoji:'🍵',name:'SULGI',kr:'설기 · Independent',cat:'creator',tags:['creator','youtube'],followers:3.2,media:58,brandDeals:2,fanActivity:70,searchTrend:57,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:87,emoji:'🌊',name:'PRODBYBLVK',kr:'Independent',cat:'creator',tags:['creator','youtube'],followers:2.8,media:57,brandDeals:1,fanActivity:68,searchTrend:56,trend:'rising',ch:'up',ct:'+1.9'},
-  {id:88,emoji:'🎪',name:'NARAE BAR',kr:'나래바 · Independent',cat:'creator',tags:['creator','youtube'],followers:4.4,media:62,brandDeals:2,fanActivity:72,searchTrend:61,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:89,emoji:'✍️',name:'DABIN WORLD',kr:'다빈월드 · Independent',cat:'creator',tags:['creator','tiktok','youtube'],followers:3.6,media:60,brandDeals:2,fanActivity:71,searchTrend:60,trend:'rising',ch:'up',ct:'+2.4'},
+  {id:70,emoji:'📱',name:'LEESERAPHINA',kr:'이세라피나 · Independent',cat:'creator',tags:['creator','youtube','instagram'],followers:8.3,media:71,brandDeals:5,fanActivity:82,searchTrend:68,trend:'rising',ch:'up',ct:'+4.1',history:[62.2,60.6,61.1,61.6,59.6,62.6,66.8,71]},
+  {id:71,emoji:'🍜',name:'HAMZY',kr:'함지(함먹) · Independent',cat:'creator',tags:['creator','youtube'],followers:9.4,media:72,brandDeals:4,fanActivity:78,searchTrend:69,trend:'stable',ch:'flat',ct:'+0.8',history:[65.5,65.8,64.8,66.9,69.8,68.6,69.7,71]},
+  {id:72,emoji:'💄',name:'PONY',kr:'박혜민 · Independent',cat:'creator',tags:['creator','youtube','instagram'],followers:8.8,media:70,brandDeals:6,fanActivity:79,searchTrend:68,trend:'stable',ch:'flat',ct:'+0.4',history:[63.0,62.0,63.8,63.6,66.2,66.5,68.0,70]},
+  {id:73,emoji:'🏋️',name:'ROZY (Virtual)',kr:'로지 · Sidus Studio X',cat:'creator',tags:['creator','instagram'],followers:12.4,media:74,brandDeals:9,fanActivity:72,searchTrend:70,trend:'rising',ch:'up',ct:'+3.3',history:[63.2,61.5,62.0,61.4,61.9,62.4,67.5,73]},
+  {id:74,emoji:'🎮',name:'WOOWAKGOOD',kr:'우왁굳 · Independent',cat:'creator',tags:['creator','youtube','tiktok'],followers:6.1,media:68,brandDeals:3,fanActivity:88,searchTrend:72,trend:'hot',ch:'up',ct:'+7.2',history:[58.4,60.2,57.9,59.5,60.9,62.9,65.1,67]},
+  {id:75,emoji:'🌸',name:'JESSICA JUNG',kr:'정수연 · Independent',cat:'creator',tags:['creator','youtube','instagram','kpop'],followers:14.1,media:69,brandDeals:5,fanActivity:74,searchTrend:67,trend:'stable',ch:'flat',ct:'+0.6',history:[60.7,61.0,61.7,64.0,66.3,66.2,68.1,70]},
+  {id:76,emoji:'🎤',name:'DOREMI',kr:'도레미 · Independent',cat:'creator',tags:['creator','youtube','tiktok'],followers:5.7,media:65,brandDeals:3,fanActivity:78,searchTrend:65,trend:'rising',ch:'up',ct:'+2.8',history:[54.4,54.5,57.3,56.7,58.0,59.1,61.9,64]},
+  {id:77,emoji:'🍱',name:'BOKI',kr:'복이 · Independent',cat:'creator',tags:['creator','youtube'],followers:7.9,media:67,brandDeals:4,fanActivity:76,searchTrend:66,trend:'stable',ch:'flat',ct:'+0.5',history:[61.6,63.3,65.6,63.3,61.2,62.2,64.6,66]},
+  {id:78,emoji:'🌿',name:'SOOBEANIE',kr:'수비니 · Independent',cat:'creator',tags:['creator','youtube','instagram'],followers:4.8,media:62,brandDeals:3,fanActivity:74,searchTrend:62,trend:'stable',ch:'flat',ct:'+0.3',history:[57.4,59.7,59.6,60.9,63.4,61.2,60.9,61]},
+  {id:79,emoji:'🧪',name:'KOREAN ENGLISHMAN',kr:'조쉬 · Independent',cat:'creator',tags:['creator','youtube'],followers:5.3,media:66,brandDeals:3,fanActivity:75,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.4',history:[57.4,59.3,57.7,55.6,57.9,58.8,61.8,64]},
+  {id:80,emoji:'🎭',name:'HYPEBOY (CREATOR)',kr:'하이프보이 · Independent',cat:'creator',tags:['creator','tiktok','youtube'],followers:6.8,media:65,brandDeals:3,fanActivity:76,searchTrend:65,trend:'rising',ch:'up',ct:'+3.6',history:[57.4,55.0,56.9,59.4,60.6,59.0,61.3,64]},
+  {id:81,emoji:'🎯',name:'KWON EUNBI',kr:'권은비 · WH Creative',cat:'creator',tags:['creator','youtube','instagram','kpop'],followers:7.3,media:66,brandDeals:4,fanActivity:76,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.5',history:[57.3,59.4,58.0,57.6,57.8,56.6,60.9,65]},
+  {id:82,emoji:'🏠',name:'HAM EUNJUNG',kr:'함은정 · Independent',cat:'creator',tags:['creator','youtube','instagram'],followers:4.1,media:63,brandDeals:3,fanActivity:73,searchTrend:62,trend:'stable',ch:'flat',ct:'+0.1',history:[52.3,51.3,51.9,53.2,54.8,52.6,56.8,61]},
+  {id:83,emoji:'🎨',name:'JAZZYFACT',kr:'재지팩트 · Independent',cat:'creator',tags:['creator','youtube'],followers:3.9,media:61,brandDeals:2,fanActivity:71,searchTrend:60,trend:'stable',ch:'flat',ct:'+0.2',history:[52.0,51.4,52.4,53.3,54.5,56.0,58.3,60]},
+  {id:84,emoji:'📸',name:'KIMSUNGSIK',kr:'김성식 · Independent',cat:'creator',tags:['creator','instagram','youtube'],followers:3.4,media:59,brandDeals:2,fanActivity:70,searchTrend:58,trend:'stable',ch:'flat',ct:'+0.1',history:[49.3,49.2,49.9,51.4,49.4,48.5,52.9,58]},
+  {id:85,emoji:'🐾',name:'JOICELINE',kr:'조이스라인 · Independent',cat:'creator',tags:['creator','tiktok','instagram'],followers:5.1,media:64,brandDeals:3,fanActivity:74,searchTrend:63,trend:'rising',ch:'up',ct:'+2.2',history:[53.6,56.1,58.2,57.1,59.1,59.3,61.4,63]},
+  {id:86,emoji:'🍵',name:'SULGI',kr:'설기 · Independent',cat:'creator',tags:['creator','youtube'],followers:3.2,media:58,brandDeals:2,fanActivity:70,searchTrend:57,trend:'stable',ch:'flat',ct:'+0.2',history:[45.5,48.3,50.5,52.0,54.9,57.7,57.2,57]},
+  {id:87,emoji:'🌊',name:'PRODBYBLVK',kr:'Independent',cat:'creator',tags:['creator','youtube'],followers:2.8,media:57,brandDeals:1,fanActivity:68,searchTrend:56,trend:'rising',ch:'up',ct:'+1.9',history:[48.8,50.0,51.2,51.9,53.9,56.6,56.0,56]},
+  {id:88,emoji:'🎪',name:'NARAE BAR',kr:'나래바 · Independent',cat:'creator',tags:['creator','youtube'],followers:4.4,media:62,brandDeals:2,fanActivity:72,searchTrend:61,trend:'stable',ch:'flat',ct:'+0.2',history:[55.2,53.9,51.7,53.7,56.2,55.4,57.3,60]},
+  {id:89,emoji:'✍️',name:'DABIN WORLD',kr:'다빈월드 · Independent',cat:'creator',tags:['creator','tiktok','youtube'],followers:3.6,media:60,brandDeals:2,fanActivity:71,searchTrend:60,trend:'rising',ch:'up',ct:'+2.4',history:[50.1,52.5,50.7,50.7,51.9,53.5,56.2,59]},
 
   // ATHLETES (10)
-  {id:90,emoji:'⚽',name:'SON HEUNG-MIN',kr:'손흥민 · Tottenham Hotspur',cat:'athlete',tags:['athlete','football'],followers:17.4,media:89,brandDeals:12,fanActivity:90,searchTrend:88,trend:'hot',ch:'up',ct:'+5.2'},
-  {id:91,emoji:'🎮',name:'FAKER (T1)',kr:'이상혁 · T1 Esports',cat:'athlete',tags:['athlete','esports'],followers:8.9,media:82,brandDeals:8,fanActivity:90,searchTrend:84,trend:'hot',ch:'up',ct:'+4.8'},
-  {id:92,emoji:'⚽',name:'LEE KANG-IN',kr:'이강인 · Paris Saint-Germain',cat:'athlete',tags:['athlete','football'],followers:5.2,media:71,brandDeals:6,fanActivity:78,searchTrend:72,trend:'rising',ch:'up',ct:'+3.7'},
-  {id:93,emoji:'⚾',name:'REXSON OH',kr:'오재원 · Los Angeles Dodgers',cat:'athlete',tags:['athlete','baseball'],followers:4.8,media:74,brandDeals:5,fanActivity:76,searchTrend:70,trend:'rising',ch:'up',ct:'+3.1'},
-  {id:94,emoji:'🏊',name:'HWANG SUN-WOO',kr:'황선우 · National Team',cat:'athlete',tags:['athlete'],followers:3.1,media:71,brandDeals:4,fanActivity:74,searchTrend:69,trend:'rising',ch:'up',ct:'+2.4'},
-  {id:95,emoji:'⛳',name:'KO JIN-YOUNG',kr:'고진영 · KLPGA',cat:'athlete',tags:['athlete'],followers:2.4,media:69,brandDeals:6,fanActivity:72,searchTrend:67,trend:'stable',ch:'flat',ct:'+0.4'},
-  {id:96,emoji:'🥊',name:'LEE SI-YOUNG',kr:'이시영 · Independent',cat:'athlete',tags:['athlete'],followers:3.8,media:67,brandDeals:4,fanActivity:71,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.3'},
-  {id:97,emoji:'🏀',name:'RUI HACHIMURA',kr:'하치무라 루이 · LA Lakers',cat:'athlete',tags:['athlete'],followers:2.9,media:65,brandDeals:5,fanActivity:69,searchTrend:64,trend:'stable',ch:'flat',ct:'+0.5'},
-  {id:98,emoji:'🎿',name:'KIM MIN-SEOK',kr:'김민석 · Speed Skating',cat:'athlete',tags:['athlete'],followers:1.8,media:63,brandDeals:3,fanActivity:68,searchTrend:62,trend:'stable',ch:'flat',ct:'+0.2'},
-  {id:99,emoji:'🏋️',name:'YOUNG PARK',kr:'박영 · Independent',cat:'athlete',tags:['athlete'],followers:2.1,media:61,brandDeals:2,fanActivity:66,searchTrend:60,trend:'stable',ch:'flat',ct:'+0.1'},
+  {id:90,emoji:'⚽',name:'SON HEUNG-MIN',kr:'손흥민 · Tottenham Hotspur',cat:'athlete',tags:['athlete','football'],followers:17.4,media:89,brandDeals:12,fanActivity:90,searchTrend:88,trend:'hot',ch:'up',ct:'+5.2',history:[82.6,82.8,82.5,85.2,82.9,82.4,87.2,91]},
+  {id:91,emoji:'🎮',name:'FAKER (T1)',kr:'이상혁 · T1 Esports',cat:'athlete',tags:['athlete','esports'],followers:8.9,media:82,brandDeals:8,fanActivity:90,searchTrend:84,trend:'hot',ch:'up',ct:'+4.8',history:[74.4,77.3,76.8,76.5,75.0,73.2,77.6,82]},
+  {id:92,emoji:'⚽',name:'LEE KANG-IN',kr:'이강인 · Paris Saint-Germain',cat:'athlete',tags:['athlete','football'],followers:5.2,media:71,brandDeals:6,fanActivity:78,searchTrend:72,trend:'rising',ch:'up',ct:'+3.7',history:[60.0,61.8,60.6,58.8,59.4,57.3,63.4,70]},
+  {id:93,emoji:'⚾',name:'REXSON OH',kr:'오재원 · Los Angeles Dodgers',cat:'athlete',tags:['athlete','baseball'],followers:4.8,media:74,brandDeals:5,fanActivity:76,searchTrend:70,trend:'rising',ch:'up',ct:'+3.1',history:[64.3,66.8,64.3,66.5,64.8,63.0,67.2,72]},
+  {id:94,emoji:'🏊',name:'HWANG SUN-WOO',kr:'황선우 · National Team',cat:'athlete',tags:['athlete'],followers:3.1,media:71,brandDeals:4,fanActivity:74,searchTrend:69,trend:'rising',ch:'up',ct:'+2.4',history:[66.8,65.6,64.9,63.4,61.2,62.8,66.1,69]},
+  {id:95,emoji:'⛳',name:'KO JIN-YOUNG',kr:'고진영 · KLPGA',cat:'athlete',tags:['athlete'],followers:2.4,media:69,brandDeals:6,fanActivity:72,searchTrend:67,trend:'stable',ch:'flat',ct:'+0.4',history:[58.0,58.3,61.0,58.7,60.5,62.8,64.9,67]},
+  {id:96,emoji:'🥊',name:'LEE SI-YOUNG',kr:'이시영 · Independent',cat:'athlete',tags:['athlete'],followers:3.8,media:67,brandDeals:4,fanActivity:71,searchTrend:65,trend:'stable',ch:'flat',ct:'+0.3',history:[58.8,60.1,60.3,62.8,60.7,58.6,61.9,66]},
+  {id:97,emoji:'🏀',name:'RUI HACHIMURA',kr:'하치무라 루이 · LA Lakers',cat:'athlete',tags:['athlete'],followers:2.9,media:65,brandDeals:5,fanActivity:69,searchTrend:64,trend:'stable',ch:'flat',ct:'+0.5',history:[56.0,59.0,59.4,59.4,60.2,58.2,61.5,64]},
+  {id:98,emoji:'🎿',name:'KIM MIN-SEOK',kr:'김민석 · Speed Skating',cat:'athlete',tags:['athlete'],followers:1.8,media:63,brandDeals:3,fanActivity:68,searchTrend:62,trend:'stable',ch:'flat',ct:'+0.2',history:[51.4,51.4,50.2,49.6,49.6,49.4,55.1,61]},
+  {id:99,emoji:'🏋️',name:'YOUNG PARK',kr:'박영 · Independent',cat:'athlete',tags:['athlete'],followers:2.1,media:61,brandDeals:2,fanActivity:66,searchTrend:60,trend:'stable',ch:'flat',ct:'+0.1',history:[57.7,55.6,57.7,55.7,53.7,55.3,57.7,60]},
 ];
+
+const AVATARS = {
+  0: {i:"V",g:"linear-gradient(135deg,#1a1a2e,#16213e,#0f3460,#533483)"},
+  1: {i:"JN",g:"linear-gradient(135deg,#d4145a,#fbb03b)"},
+  2: {i:"SKZ",g:"linear-gradient(135deg,#0f2027,#203a43,#2c5364)"},
+  3: {i:"RO",g:"linear-gradient(135deg,#c94b4b,#4b134f)"},
+  4: {i:"JK",g:"linear-gradient(135deg,#141e30,#243b55)"},
+  5: {i:"JM",g:"linear-gradient(135deg,#360033,#0b8793)"},
+  6: {i:"RM",g:"linear-gradient(135deg,#373b44,#4286f4)"},
+  7: {i:"GD",g:"linear-gradient(135deg,#f7971e,#ffd200)"},
+  8: {i:"LI",g:"linear-gradient(135deg,#f953c6,#b91d73)"},
+  9: {i:"KA",g:"linear-gradient(135deg,#4e54c8,#8f94fb)"},
+  10: {i:"NY",g:"linear-gradient(135deg,#ff6e7f,#bfe9ff)"},
+  11: {i:"HN",g:"linear-gradient(135deg,#11998e,#38ef7d)"},
+  12: {i:"KI",g:"linear-gradient(135deg,#834d9b,#d04ed6)"},
+  13: {i:"WY",g:"linear-gradient(135deg,#f2709c,#ff9472)"},
+  14: {i:"SY",g:"linear-gradient(135deg,#134e5e,#71b280)"},
+  15: {i:"TY",g:"linear-gradient(135deg,#da4453,#89216b)"},
+  16: {i:"SA",g:"linear-gradient(135deg,#ee9ca7,#ffdde1)"},
+  17: {i:"SC",g:"linear-gradient(135deg,#1d4350,#a43931)"},
+  18: {i:"TM",g:"linear-gradient(135deg,#005c97,#363795)"},
+  19: {i:"HW",g:"linear-gradient(135deg,#f46b45,#eea849)"},
+  20: {i:"TG",g:"linear-gradient(135deg,#2b5876,#4e4376)"},
+  21: {i:"IR",g:"linear-gradient(135deg,#c31432,#240b36)"},
+  22: {i:"KZ",g:"linear-gradient(135deg,#56ab2f,#a8e063)"},
+  23: {i:"SL",g:"linear-gradient(135deg,#ff8c00,#ff0080)"},
+  24: {i:"JW",g:"linear-gradient(135deg,#1a1a2e,#e94560)"},
+  25: {i:"RJ",g:"linear-gradient(135deg,#780206,#061161)"},
+  26: {i:"TO",g:"linear-gradient(135deg,#3a3a3a,#6a6a6a)"},
+  27: {i:"YJ",g:"linear-gradient(135deg,#43cea2,#185a9d)"},
+  28: {i:"HC",g:"linear-gradient(135deg,#642b73,#c6426e)"},
+  29: {i:"KY",g:"linear-gradient(135deg,#2c3e50,#fd746c)"},
+  30: {i:"JB",g:"linear-gradient(135deg,#1e3c72,#2a5298)"},
+  31: {i:"BM",g:"linear-gradient(135deg,#544a7d,#ffd452)"},
+  32: {i:"JH",g:"linear-gradient(135deg,#d38312,#a83279)"},
+  33: {i:"MN",g:"linear-gradient(135deg,#606c88,#3f4c6b)"},
+  34: {i:"SG",g:"linear-gradient(135deg,#0f0c29,#302b63,#24243e)"},
+  35: {i:"HI",g:"linear-gradient(135deg,#f7ff00,#db36a4)"},
+  36: {i:"NE",g:"linear-gradient(135deg,#fd746c,#ff9068)"},
+  37: {i:"WS",g:"linear-gradient(135deg,#355c7d,#6c5b7b,#c06c84)"},
+  38: {i:"LN",g:"linear-gradient(135deg,#bdc3c7,#2c3e50)"},
+  39: {i:"MB",g:"linear-gradient(135deg,#4facfe,#00f2fe)"},
+  40: {i:"IU",g:"linear-gradient(135deg,#f5af19,#f12711)"},
+  41: {i:"KS",g:"linear-gradient(135deg,#005aa7,#fffde4)"},
+  42: {i:"SJ",g:"linear-gradient(135deg,#544a7d,#ffd452)"},
+  43: {i:"LJ",g:"linear-gradient(135deg,#1a1a1a,#e44d26)"},
+  44: {i:"LJH",g:"linear-gradient(135deg,#f7971e,#ffd200)"},
+  45: {i:"GY",g:"linear-gradient(135deg,#2c3e50,#4ca1af)"},
+  46: {i:"PS",g:"linear-gradient(135deg,#556270,#ff6b6b)"},
+  47: {i:"HB",g:"linear-gradient(135deg,#1e3c72,#2a5298)"},
+  48: {i:"HS",g:"linear-gradient(135deg,#c94b4b,#4b134f)"},
+  49: {i:"LM",g:"linear-gradient(135deg,#134e5e,#71b280)"},
+  50: {i:"SH",g:"linear-gradient(135deg,#bdc3c7,#2c3e50)"},
+  51: {i:"KJ",g:"linear-gradient(135deg,#f953c6,#b91d73)"},
+  52: {i:"JHY",g:"linear-gradient(135deg,#0f2027,#203a43,#2c5364)"},
+  53: {i:"SY2",g:"linear-gradient(135deg,#ee9ca7,#ffdde1)"},
+  54: {i:"PB",g:"linear-gradient(135deg,#43cea2,#185a9d)"},
+  55: {i:"JJH",g:"linear-gradient(135deg,#360033,#0b8793)"},
+  56: {i:"PM",g:"linear-gradient(135deg,#ff6e7f,#bfe9ff)"},
+  57: {i:"KT",g:"linear-gradient(135deg,#11998e,#38ef7d)"},
+  58: {i:"MD",g:"linear-gradient(135deg,#373b44,#4286f4)"},
+  59: {i:"CW",g:"linear-gradient(135deg,#834d9b,#d04ed6)"},
+  60: {i:"KW",g:"linear-gradient(135deg,#2b5876,#4e4376)"},
+  61: {i:"LD",g:"linear-gradient(135deg,#f46b45,#eea849)"},
+  62: {i:"GK",g:"linear-gradient(135deg,#56ab2f,#a8e063)"},
+  63: {i:"AH",g:"linear-gradient(135deg,#4facfe,#00f2fe)"},
+  64: {i:"YA",g:"linear-gradient(135deg,#606c88,#3f4c6b)"},
+  65: {i:"RH",g:"linear-gradient(135deg,#d38312,#a83279)"},
+  66: {i:"SH2",g:"linear-gradient(135deg,#780206,#061161)"},
+  67: {i:"KD",g:"linear-gradient(135deg,#c31432,#240b36)"},
+  68: {i:"NM",g:"linear-gradient(135deg,#1d4350,#a43931)"},
+  69: {i:"JJH2",g:"linear-gradient(135deg,#da4453,#89216b)"},
+  70: {i:"LS",g:"linear-gradient(135deg,#f7971e,#ffd200)"},
+  71: {i:"HZ",g:"linear-gradient(135deg,#ff6e7f,#bfe9ff)"},
+  72: {i:"PO",g:"linear-gradient(135deg,#f953c6,#b91d73)"},
+  73: {i:"RZ",g:"linear-gradient(135deg,#4e54c8,#8f94fb)"},
+  74: {i:"WW",g:"linear-gradient(135deg,#11998e,#38ef7d)"},
+  75: {i:"JJ",g:"linear-gradient(135deg,#ee9ca7,#ffdde1)"},
+  76: {i:"DR",g:"linear-gradient(135deg,#43cea2,#185a9d)"},
+  77: {i:"BK",g:"linear-gradient(135deg,#f46b45,#eea849)"},
+  78: {i:"SB",g:"linear-gradient(135deg,#56ab2f,#a8e063)"},
+  79: {i:"KE",g:"linear-gradient(135deg,#2c3e50,#4ca1af)"},
+  80: {i:"HB2",g:"linear-gradient(135deg,#d4145a,#fbb03b)"},
+  81: {i:"KEB",g:"linear-gradient(135deg,#556270,#ff6b6b)"},
+  82: {i:"HE",g:"linear-gradient(135deg,#134e5e,#71b280)"},
+  83: {i:"JF",g:"linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)"},
+  84: {i:"KS2",g:"linear-gradient(135deg,#bdc3c7,#2c3e50)"},
+  85: {i:"JC",g:"linear-gradient(135deg,#360033,#0b8793)"},
+  86: {i:"SG2",g:"linear-gradient(135deg,#780206,#061161)"},
+  87: {i:"PB2",g:"linear-gradient(135deg,#0f0c29,#302b63)"},
+  88: {i:"NB",g:"linear-gradient(135deg,#f7ff00,#db36a4)"},
+  89: {i:"DW",g:"linear-gradient(135deg,#642b73,#c6426e)"},
+  90: {i:"SHM",g:"linear-gradient(135deg,#e8003d,#ff6b35)"},
+  91: {i:"FK",g:"linear-gradient(135deg,#0f2027,#203a43,#2c5364)"},
+  92: {i:"LKI",g:"linear-gradient(135deg,#003087,#ff0000)"},
+  93: {i:"OH",g:"linear-gradient(135deg,#003831,#ef3e42)"},
+  94: {i:"HW2",g:"linear-gradient(135deg,#004B8D,#ffffff,#004B8D)"},
+  95: {i:"KJ2",g:"linear-gradient(135deg,#f7971e,#ffd200)"},
+  96: {i:"LS2",g:"linear-gradient(135deg,#c0392b,#e74c3c)"},
+  97: {i:"RH2",g:"linear-gradient(135deg,#552583,#FDB927)"},
+  98: {i:"KM",g:"linear-gradient(135deg,#003580,#ffffff)"},
+  99: {i:"YP",g:"linear-gradient(135deg,#373b44,#4286f4)"},
+};
+
+function makeAvatar(id, size) {
+  const a = AVATARS[id] || {i:"?",g:"linear-gradient(135deg,#333,#666)"};
+  const sz = size||46;
+  return `<div class="celeb-avatar" style="width:${sz}px;height:${sz}px;background:${a.g};font-size:${sz<=30?"0.52rem":"0.82rem"}"><span>${a.i}</span></div>`;
+}
 
 // =============================================
 // SCORE CALCULATION
@@ -629,7 +758,7 @@ function renderTable(page,filter){
       const social=c.followers>=1?c.followers.toFixed(1)+'M':Math.round(c.followers*1000)+'K';
       return `<tr class="rank-row" onclick="openModal(${c.id})">
         <td class="rank-num ${rc}">${dr}</td>
-        <td><div class="celeb-info"><div class="celeb-avatar">${c.emoji}</div><div>
+        <td><div class="celeb-info">${makeAvatar(c.id,46)}<div>
           <div class="celeb-name">${c.name}</div>
           <div class="celeb-name-kr">${c.kr}</div>
           <div class="celeb-meta">${c.tags.slice(0,2).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')}${ob}</div>
@@ -652,7 +781,7 @@ function renderSidePanel(page,data){
     <div class="panel-card">
       <div class="panel-title">SCORE FORMULA</div>
       <div class="score-breakdown">
-        ${[['Followers','35',35,'#e8003d'],['Media','25',25,'#c8a84b'],['Brand Deals','20',20,'#4488ff'],['Fan Activity','15',15,'#00d68f'],['Search','5',5,'#aa44ff']].map(([l,p,w,col])=>`
+        ${[['Followers','35',35,'#b8923a'],['Media','25',25,'#c8a84b'],['Brand Deals','20',20,'#4488ff'],['Fan Activity','15',15,'#00d68f'],['Search','5',5,'#aa44ff']].map(([l,p,w,col])=>`
         <div class="breakdown-row">
           <div class="breakdown-label">${l}</div>
           <div class="breakdown-track"><div class="breakdown-fill" style="width:${w*3}%;background:${col}"></div></div>
@@ -664,8 +793,8 @@ function renderSidePanel(page,data){
       <div class="panel-title">BIGGEST MOVERS</div>
       <ul class="trending-list">
         ${movers.map(c=>`<li class="trending-item" onclick="openModal(${c.id})">
-          <span class="trending-rank" style="color:${c.ch==='up'?'#00d68f':c.ch==='down'?'var(--red)':'var(--muted)'}">${c.ch==='up'?'↑':c.ch==='down'?'↓':'—'}${Math.abs(parseFloat(c.ct)).toFixed(1)}</span>
-          <div class="trending-avatar">${c.emoji}</div>
+          <span class="trending-rank" style="color:${c.ch==='up'?'#1e8449':c.ch==='down'?'#c0392b':'#8a8480'}">${c.ch==='up'?'↑':c.ch==='down'?'↓':'—'}${Math.abs(parseFloat(c.ct)).toFixed(1)}</span>
+          ${makeAvatar(c.id,28)}
           <div><div class="trending-name">${c.name.split('/').pop().trim()}</div><div class="trending-meta">${c.kr.split('·')[0].trim()}</div></div>
           <div class="trending-score">${c.score}</div>
         </li>`).join('')}
@@ -685,7 +814,7 @@ function renderHomeTable(){
       const social=c.followers>=1?c.followers.toFixed(1)+'M':Math.round(c.followers*1000)+'K';
       return `<tr class="rank-row" onclick="openModal(${c.id})">
         <td class="rank-num ${i===0?'gold':i===1?'silver':i===2?'bronze':''}">${i+1}</td>
-        <td><div class="celeb-info"><div class="celeb-avatar">${c.emoji}</div><div>
+        <td><div class="celeb-info">${makeAvatar(c.id,46)}<div>
           <div class="celeb-name">${c.name}</div><div class="celeb-name-kr">${c.kr}</div>
           <div class="celeb-meta">${c.tags.slice(0,2).map(t=>`<span class="tag ${t}">${t.toUpperCase()}</span>`).join('')}</div>
         </div></div></td>
@@ -697,11 +826,114 @@ function renderHomeTable(){
     }).join('')+'</tbody>';
 }
 
+
+// =============================================
+// RANK HISTORY CHART — drawn with Canvas API
+// No external library needed
+// =============================================
+function drawChart(history) {
+  const canvas = document.getElementById('rankChart');
+  if (!canvas) return;
+  const labelsEl = document.getElementById('chartLabels');
+
+  // Set canvas resolution
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.parentElement.offsetWidth || 460;
+  const H = 110;
+  canvas.width  = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width  = W + 'px';
+  canvas.style.height = H + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, W, H);
+
+  const pad = { top: 12, right: 12, bottom: 8, left: 32 };
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+
+  const minVal = Math.max(0,  Math.min(...history) - 5);
+  const maxVal = Math.min(100, Math.max(...history) + 5);
+  const range  = maxVal - minVal || 1;
+
+  const toX = (i) => pad.left + (i / (history.length - 1)) * chartW;
+  const toY = (v) => pad.top + (1 - (v - minVal) / range) * chartH;
+
+  // Grid lines (3 horizontal)
+  ctx.strokeStyle = 'rgba(26,30,46,0.08)';
+  ctx.lineWidth = 1;
+  [0, 0.5, 1].forEach(t => {
+    const y = pad.top + t * chartH;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + chartW, y); ctx.stroke();
+    const label = (maxVal - t * range).toFixed(0);
+    ctx.fillStyle = 'rgba(26,30,46,0.35)';
+    ctx.font = '9px Space Mono, monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText(label, pad.left - 4, y + 3);
+  });
+
+  // Gradient fill under line
+  const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + chartH);
+  grad.addColorStop(0,   'rgba(184,146,58,0.3)');
+  grad.addColorStop(1,   'rgba(184,146,58,0.0)');
+  ctx.beginPath();
+  ctx.moveTo(toX(0), toY(history[0]));
+  history.forEach((v, i) => { if (i > 0) ctx.lineTo(toX(i), toY(v)); });
+  ctx.lineTo(toX(history.length - 1), pad.top + chartH);
+  ctx.lineTo(toX(0), pad.top + chartH);
+  ctx.closePath();
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Main line
+  ctx.beginPath();
+  ctx.moveTo(toX(0), toY(history[0]));
+  history.forEach((v, i) => { if (i > 0) ctx.lineTo(toX(i), toY(v)); });
+  ctx.strokeStyle = '#b8923a';
+  ctx.lineWidth = 2;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+
+  // Dots on each data point
+  history.forEach((v, i) => {
+    const x = toX(i), y = toY(v);
+    // Glow
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(184,146,58,0.2)';
+    ctx.fill();
+    // Dot
+    ctx.beginPath();
+    ctx.arc(x, y, 3, 0, Math.PI * 2);
+    ctx.fillStyle = i === history.length - 1 ? '#1a1e2e' : '#b8923a';
+    ctx.fill();
+    // Score label on last point
+    if (i === history.length - 1) {
+      ctx.fillStyle = '#1a1e2e';
+      ctx.font = 'bold 9px Space Mono, monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(v.toFixed(1), x, y - 8);
+    }
+  });
+
+  // Week labels below chart
+  const weeks = ['W-7','W-6','W-5','W-4','W-3','W-2','W-1','NOW'];
+  if (labelsEl) {
+    labelsEl.innerHTML = weeks.map(w =>
+      `<span class="chart-label">${w}</span>`
+    ).join('');
+  }
+}
+
 // =============================================
 // MODAL
 // =============================================
 function openModal(id){
   const c=DB[id];
+  // Avatar in modal header
+  const modalHeader = document.getElementById('modalHeader');
+  if(modalHeader) modalHeader.innerHTML = makeAvatar(c.id, 80);
   document.getElementById('modalRank').textContent='#'+c.overallRank;
   document.getElementById('modalName').textContent=c.name;
   document.getElementById('modalNameKr').textContent=c.kr;
@@ -717,8 +949,8 @@ function openModal(id){
     <div class="modal-stat-box"><div class="modal-stat-label">Brand Deals</div><div class="modal-stat-val">${c.brandDeals} Active</div></div>
     <div class="modal-stat-box"><div class="modal-stat-label">Fan Activity</div><div class="modal-stat-val">${c.fanActivity}/100</div></div>
     <div class="modal-stat-box"><div class="modal-stat-label">Search Trend</div><div class="modal-stat-val">${c.searchTrend}/100</div></div>
-    <div class="modal-stat-box"><div class="modal-stat-label">Weekly Change</div><div class="modal-stat-val" style="color:${c.ch==='up'?'#00d68f':c.ch==='down'?'var(--red)':'var(--muted)'}">${c.ch==='up'?'▲':c.ch==='down'?'▼':'—'} ${c.ct} pts</div></div>`;
-  const colors=['#e8003d','#c8a84b','#4488ff','#00d68f','#aa44ff'];
+    <div class="modal-stat-box"><div class="modal-stat-label">Weekly Change</div><div class="modal-stat-val" style="color:${c.ch==='up'?'#1e8449':c.ch==='down'?'#c0392b':'#8a8480'}">${c.ch==='up'?'▲':c.ch==='down'?'▼':'—'} ${c.ct} pts</div></div>`;
+  const colors=['#b8923a','#b8923a','#1a5f8a','#1e8449','#6b4c8a'];
   const labels=['Followers (35%)','Media (25%)','Brand Deals (20%)','Fan Activity (15%)','Search Trend (5%)'];
   const vals=[Math.min(100,c.followers)*0.35, c.media*0.25, Math.min(100,(c.brandDeals/20)*100)*0.20, c.fanActivity*0.15, c.searchTrend*0.05];
   document.getElementById('modalBreakdown').innerHTML=labels.map((l,i)=>`
@@ -728,6 +960,8 @@ function openModal(id){
       <div class="breakdown-val">${vals[i].toFixed(1)}</div>
     </div>`).join('');
   document.getElementById('modalOverlay').classList.add('open');
+  // Draw chart after modal is visible (needs layout)
+  requestAnimationFrame(() => drawChart(c.history || []));
 }
 function closeModal(e){ if(e.target.id==='modalOverlay')document.getElementById('modalOverlay').classList.remove('open'); }
 

@@ -198,8 +198,78 @@
   .footer-links a{font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--gold);text-decoration:none;letter-spacing:0.1em;transition:color 0.2s;}
   .footer-links a:hover{color:var(--navy);}
 
-  @media(max-width:1024px){.rankings-layout{grid-template-columns:1fr;}.side-panel{position:static;}}
-  @media(max-width:768px){.hero{grid-template-columns:1fr;gap:2rem;}.feature-inner{grid-template-columns:1fr 1fr;}.category-cards{grid-template-columns:1fr 1fr 1fr;}.nav-links{display:none;}.rank-table th:nth-child(3),.rank-table td:nth-child(3),.rank-table th:nth-child(4),.rank-table td:nth-child(4){display:none;}}
+  /* HAMBURGER */
+  .nav-hamburger{display:none;background:none;border:1px solid rgba(184,146,58,0.4);color:var(--gold);font-size:1.3rem;cursor:pointer;padding:0.3rem 0.7rem;border-radius:4px;line-height:1;}
+
+  @media(max-width:1024px){
+    .rankings-layout{grid-template-columns:1fr;}
+    .side-panel{position:static;}
+  }
+  @media(max-width:768px){
+    /* NAV */
+    nav{padding:0.9rem 1.2rem;position:relative;}
+    .nav-hamburger{display:block;}
+    .nav-links{
+      display:none;flex-direction:column;
+      position:absolute;top:100%;left:0;right:0;
+      background:rgba(228,221,213,0.99);
+      border-bottom:2px solid var(--gold);
+      box-shadow:0 6px 24px rgba(26,30,46,0.14);
+      z-index:200;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links li a{padding:0.9rem 1.5rem;border-bottom:1px solid var(--border);font-size:0.75rem;border-bottom-width:1px;}
+    .nav-links li:last-child a{border-bottom:none;}
+    /* HERO */
+    .hero{grid-template-columns:1fr;gap:1.5rem;padding:2rem 1.2rem 1.5rem;}
+    h1{font-size:2.4rem;}
+    .hero-desc{font-size:0.82rem;}
+    /* SECTIONS */
+    .section{padding:1.5rem 1.2rem;}
+    .page-banner{padding:1.5rem 1.2rem;}
+    .page-banner h2{font-size:1.8rem;}
+    .page-banner-inner{flex-direction:column;gap:0.5rem;align-items:flex-start;}
+    /* CARDS */
+    .category-cards{grid-template-columns:repeat(3,1fr);}
+    .cat-card{padding:1rem 0.4rem;}
+    /* FEATURES */
+    .feature-inner{grid-template-columns:1fr 1fr;}
+    .feature-item{padding:1.2rem;}
+    /* TABLE — hide social bar & media bar on mobile, keep score */
+    .rank-table th:nth-child(3),.rank-table td:nth-child(3),
+    .rank-table th:nth-child(4),.rank-table td:nth-child(4){display:none;}
+    /* MODAL */
+    .modal{padding:1.4rem;width:98%;max-height:95vh;}
+    .modal-stats{grid-template-columns:1fr 1fr;}
+    /* STATS BAR */
+    .stats-bar{grid-template-columns:repeat(3,1fr);}
+    .stat-item{padding:1.2rem 0.5rem;}
+    .stat-num{font-size:1.8rem;}
+    /* FOOTER */
+    footer{flex-direction:column;gap:0.8rem;text-align:center;padding:1.2rem;}
+    .footer-links{justify-content:center;gap:1rem;}
+    /* VOTE */
+    .vote-email-row{flex-direction:column;}
+    .vote-submit{width:100%;}
+    .vote-cat-grid{gap:0.4rem;}
+    .vote-cat-btn{font-size:0.6rem;padding:0.4rem 0.7rem;}
+  }
+  @media(max-width:480px){
+    .category-cards{grid-template-columns:repeat(2,1fr);}
+    .feature-inner{grid-template-columns:1fr;}
+    .feature-item{border-right:none;border-bottom:1px solid var(--border);}
+    .feature-item:last-child{border-bottom:none;}
+    .stats-bar{grid-template-columns:1fr;}
+    .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+    .stat-item:last-child{border-bottom:none;}
+    .hero{padding:1.5rem 1rem;}
+    .section{padding:1.2rem 1rem;}
+    .page-banner{padding:1.2rem 1rem;}
+    .modal-stats{grid-template-columns:1fr;}
+    .modal{padding:1.2rem;width:100%;max-height:100vh;}
+    .section-title{font-size:1.3rem;}
+    h1{font-size:2rem;}
+  }
 
   /* RANK HISTORY CHART */
   .chart-section{margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid var(--border);}
@@ -245,7 +315,8 @@
     <div class="logo">KR<span>A</span>NK</div>
     <span class="logo-sub">Korean Influence Power Index</span>
   </div>
-  <ul class="nav-links">
+  <button class="nav-hamburger" onclick="toggleMobileMenu()" id="navHamburger">☰</button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#" onclick="return showPage('rankings')" id="nav-rankings">Rankings</a></li>
     <li><a href="#" onclick="return showPage('kpop')" id="nav-kpop">K-Pop</a></li>
     <li><a href="#" onclick="return showPage('actors')" id="nav-actors">Actors</a></li>
@@ -908,11 +979,15 @@ function trendLabel(t){ return {hot:'🔥 HOT',rising:'↑ RISING',stable:'— S
 // =============================================
 // PAGE ROUTING
 // =============================================
+function toggleMobileMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
 function showPage(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
   const pe=document.getElementById('page-'+page); if(pe)pe.classList.add('active');
   const ne=document.getElementById('nav-'+page);  if(ne)ne.classList.add('active');
+  document.getElementById('navLinks').classList.remove('open');
   window.scrollTo({top:0,behavior:'smooth'});
   if(page==='rankings')renderTable('all','all');
   if(page==='kpop')    renderTable('kpop','kpop');

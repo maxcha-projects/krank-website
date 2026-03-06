@@ -491,11 +491,8 @@
 
 <!-- ===== VOTE / SUPPORT ===== -->
 <div id="page-vote" class="page">
-  <div class="page-banner"><div class="page-banner-inner"><div><h2>Fan <span>Support</span></h2><p>Vote for your favorite Korean star · Your support shapes their KRANK score</p></div><div class="page-banner-stat"><div class="big" id="totalVoteCount">0</div><div class="small">Total Votes</div></div></div></div>
+  <div class="page-banner"><div class="page-banner-inner"><div><h2>Fan <span>Support</span></h2><p>Vote for your favorite Korean star · Your support shapes their KRANK score</p></div><div class="page-banner-stat"><div class="big" id="totalVoteCount">0</div><div class="small">Your Total Votes</div></div></div></div>
   <div class="section" style="max-width:700px">
-    <div class="vote-tally">
-      <div class="vote-tally-box"><div class="vote-tally-num" id="voteCountDisplay">0</div><div class="vote-tally-label">YOUR VOTES</div></div>
-    </div>
     <div class="vote-note">
       ⭐ <strong>Your vote counts.</strong> Fan support votes contribute up to <strong>5%</strong> of the Fan Activity score, which makes up <strong>15%</strong> of each celebrity's total KRANK score. Every submission is tallied — cast your vote and help your favorite star rise in the rankings.
     </div>
@@ -1295,29 +1292,9 @@ function populateVoteStars(cat){
   document.getElementById('voteStep3').style.pointerEvents='none';
 }
 
-function setVoteCount(n){
-  document.getElementById('totalVoteCount').textContent  = n;
-  document.getElementById('voteCountDisplay').textContent= n;
-}
 function updateVoteDisplay(){
-  // Use a script tag to load count — avoids CORS redirect issues with Apps Script GET
-  const cbName = '_krankCb_' + Date.now();
-  window[cbName] = function(data){
-    if(data && data.count != null) setVoteCount(data.count);
-    delete window[cbName];
-    if(script.parentNode) script.parentNode.removeChild(script);
-  };
-  const script = document.createElement('script');
-  script.onerror = function(){
-    // Fallback: fetch normally
-    fetch(SHEETS_URL)
-      .then(r=>r.json())
-      .then(d=>{ if(d.count!=null) setVoteCount(d.count); })
-      .catch(()=>{ setVoteCount(JSON.parse(localStorage.getItem('krank_votes')||'[]').length); });
-    delete window[cbName];
-  };
-  script.src = SHEETS_URL + '?callback=' + cbName;
-  document.head.appendChild(script);
+  const n = JSON.parse(localStorage.getItem('krank_votes')||'[]').length;
+  document.getElementById('totalVoteCount').textContent = n;
 }
 
 async function submitVote(){
@@ -1358,13 +1335,9 @@ async function submitVote(){
   updateVoteDisplay();
 
   try {
-    const res = await fetch(SHEETS_URL, {method:'POST', body: JSON.stringify(vote)});
-    const data = await res.json();
-    if(data.count != null) setVoteCount(data.count);
-    else updateVoteDisplay();
+    await fetch(SHEETS_URL, {method:'POST', body: JSON.stringify(vote)});
   } catch(e){
     console.warn('Sheets log failed:', e);
-    updateVoteDisplay();
   }
 
   showVoteMsg('success',`✓ Your vote for ${star.name} has been recorded! Thank you for your support.`);

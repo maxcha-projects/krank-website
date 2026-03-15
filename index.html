@@ -1133,6 +1133,8 @@ function calcMediaScore(c) {
 }
 
 function calcBrandScore(c) {
+  // Use pipeline Brand Power Score directly if available
+  if (c.brandPower != null) return c.brandPower;
   // Active Endorsements: normalise deal count (max 20 deals = 100)
   const endorse = c.activeEndorsements != null
     ? Math.min(100, c.activeEndorsements)
